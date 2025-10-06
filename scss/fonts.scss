@@ -1,0 +1,38 @@
+// FontAwesome
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+// Fonts
+$font-family-sans-serif: "FONT_NAME", sans-serif;
+$body-font-family: $font-family-sans-serif;
+
+@font-face {
+    font-family: "circular_stdbook";
+    src:
+        url("../fonts/circularstd-book-webfont.woff2") format("woff2"),
+        url("../fonts/circularstd-book-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "circular_stdmedium";
+    src:
+        url("../fonts/circular-std-medium-500-webfont.woff2") format("woff2"),
+        url("../fonts/circular-std-medium-500-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "circular_stdbold";
+    src:
+        url("../fonts/circularstd-bold-webfont.woff2") format("woff2"),
+        url("../fonts/circularstd-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}

@@ -1,0 +1,370 @@
+// Swipers header
+.swiper-header {
+    color: $white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    h1,
+    h2,
+    h3 {
+        color: $white;
+        position: relative;
+        z-index: 2;
+    }
+
+    .swiper-slide {
+        background-position: center !important;
+        background-size: cover !important;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(22, 35, 64, 0.5);
+            z-index: 1;
+        }
+    }
+
+    // Custom navigation arrows positioning
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: absolute;
+        @include absolute-center-y;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid $white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        // Override Swiper's default CSS custom properties
+        --swiper-navigation-color: #{$white};
+        --swiper-theme-color: #{$white};
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &::after {
+            font-size: 16px;
+            font-weight: 700;
+            color: $white;
+        }
+
+        // Target the SVG directly
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: $white !important;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 30px !important;
+    }
+
+    .swiper-button-next {
+        right: 30px !important;
+    }
+
+    // Hide arrows when swiper is disabled
+    &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Swiper services
+.swiper-services {
+    color: $white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    // Force hardware acceleration for better performance
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+
+    h1,
+    h2,
+    h3,
+    p {
+        color: $white;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        @include font-size(2rem);
+    }
+
+    p {
+        text-transform: uppercase;
+        @include font-size(0.9rem);
+    }
+
+    .swiper-wrapper {
+        padding: 30px 0;
+
+        // Ensure proper display and positioning
+        display: flex;
+        align-items: stretch;
+    }
+
+    .swiper-slide {
+        background-position: center !important;
+        background-size: cover !important;
+        width: 100%;
+        height: 600px;
+        position: relative;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        // Ensure proper rendering
+        opacity: 1;
+        visibility: visible;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+
+        // Prevent content from disappearing during transitions
+        &.swiper-slide-duplicate {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(22, 35, 64, 0.3) 40%,
+                #162340 100%
+            );
+            z-index: 1;
+        }
+    }
+
+    // Custom navigation arrows positioning
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: absolute;
+        @include absolute-center-y;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid $white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        // Override Swiper's default CSS custom properties
+        --swiper-navigation-color: #{$white};
+        --swiper-theme-color: #{$white};
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &::after {
+            font-size: 16px;
+            font-weight: 700;
+            color: $white;
+        }
+
+        // Target the SVG directly
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: $white !important;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 30px !important;
+    }
+
+    .swiper-button-next {
+        right: 30px !important;
+    }
+
+    // Hide arrows when swiper is disabled
+    &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    // Large screens - centered slide styling
+    @media (min-width: 992px) {
+        .swiper-slide {
+            opacity: 0.6;
+            transform: scale(0.8) translateZ(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            &.swiper-slide-active,
+            &.active {
+                opacity: 1;
+                transform: scale(1.05) translateZ(0);
+                z-index: 2;
+            }
+        }
+    }
+}
+
+// Swiper inner
+.swiper-inner {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: relative;
+
+    // Force hardware acceleration for better performance
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+
+    .swiper-wrapper {
+        padding: 30px 0;
+
+        // Ensure proper display and positioning
+        display: flex;
+        align-items: stretch;
+    }
+
+    .swiper-slide {
+        border-radius: 25px;
+        // Ensure proper rendering
+        opacity: 1;
+        visibility: visible;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+
+        // Prevent content from disappearing during transitions
+        &.swiper-slide-duplicate {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+
+    // Custom navigation arrows positioning
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: absolute;
+        @include absolute-center-y;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid $white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        // Override Swiper's default CSS custom properties
+        --swiper-navigation-color: #{$white};
+        --swiper-theme-color: #{$white};
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &::after {
+            font-size: 16px;
+            font-weight: 700;
+            color: $white;
+        }
+
+        // Target the SVG directly
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: $white !important;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 30px !important;
+    }
+
+    .swiper-button-next {
+        right: 30px !important;
+    }
+
+    // Hide arrows when swiper is disabled
+    &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    // Large screens - centered slide styling
+    @media (min-width: 992px) {
+        .swiper-slide {
+            opacity: 0.9;
+            transform: scale(0.8) translateZ(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            &.swiper-slide-active,
+            &.active {
+                opacity: 1;
+                transform: scale(1.08) translateZ(0);
+                z-index: 2;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    .card {
+        background-color: transparent;
+        position: relative;
+        border-radius: 25px;
+        box-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.2),
+            3px 3px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+}
