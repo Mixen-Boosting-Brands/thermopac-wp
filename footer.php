@@ -1,34 +1,273 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
+        <section id="contact" class="pt-60 pb-30">
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col container-inner rounded"
+                        style="padding-top: 60px; padding-bottom: 60px"
+                    >
+                        <div class="row mb-4">
+                            <div class="col text-center">
+                                <h1
+                                    data-aos="fade-up"
+                                    data-aos-duration="1500"
+                                    data-aos-delay="0"
+                                >
+                                    How can we help you?
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div id="form-messages"></div>
 
-				<!-- copyright -->
-			    <?php
-				    printf( '<p class="copyright">' . __( '&copy; %1$s Copyright %2$s. Powered by <a href="%3$s" title="WordPress">WordPress</a> &amp; <a href="%4$s" title="HTML5 Blank">HTML5 Blank</a>.', 'html5blank' ) . '</p>',
-				    	date( 'Y'),
-				    	esc_html( get_bloginfo( 'name' ) ),
-				    	'//wordpress.org',
-				    	'//html5blank.com'
-					);
-				?>
-				<!-- /copyright -->
+                                <form
+                                    action="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/mailer.php"
+                                    method="POST"
+                                    class="row g-3 needs-validation contact-form mb-4 mb-lg-0"
+                                    id="ajax-contact"
+                                    novalidate
+                                    data-aos="fade-up"
+                                    data-aos-duration="1500"
+                                    data-aos-delay="100"
+                                >
+                                    <div class="col-md-6 form-floating">
+                                        <input
+                                            type="text"
+                                            class="form-control shadow-none"
+                                            id="name"
+                                            name="name"
+                                            placeholder="Name*"
+                                            pattern=".{5,50}"
+                                            required
+                                        />
+                                        <label for="name" class="form-label"
+                                            >Name*</label
+                                        >
+                                        <div class="valid-feedback">
+                                            It looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter your name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-floating">
+                                        <input
+                                            type="email"
+                                            class="form-control shadow-none"
+                                            id="email"
+                                            name="email"
+                                            placeholder="Email*"
+                                            required
+                                        />
+                                        <label for="email" class="form-label"
+                                            >Email*</label
+                                        >
+                                        <div class="valid-feedback">
+                                            It looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid email address.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-floating">
+                                        <input
+                                            type="tel"
+                                            class="form-control shadow-none"
+                                            id="phone"
+                                            name="phone"
+                                            placeholder="Phone*"
+                                            required
+                                        />
+                                        <label for="phone" class="form-label"
+                                            >Phone*</label
+                                        >
+                                        <div class="valid-feedback">
+                                            It looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid phone number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-floating">
+                                        <input
+                                            type="text"
+                                            class="form-control shadow-none"
+                                            id="subject"
+                                            name="subject"
+                                            placeholder="Subject*"
+                                            pattern=".{5,50}"
+                                            required
+                                        />
+                                        <label for="subject" class="form-label"
+                                            >Subject*</label
+                                        >
+                                        <div class="valid-feedback">
+                                            It looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter your subject.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 form-floating mb-4">
+                                        <textarea
+                                            class="form-control shadow-none"
+                                            id="message"
+                                            name="message"
+                                            placeholder="Message*"
+                                            required
+                                        ></textarea>
+                                        <label for="mensaje">Message*</label>
+                                        <div class="valid-feedback">
+                                            It looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter your message.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            We are commited to protect your
+                                            privacy.
+                                            <br />
+                                            We will never collect
+                                            informationabout you without your
+                                            consent.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 mb-5 text-end">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-lg btn-light rounded-pill"
+                                        >
+                                            <i
+                                                class="fa-solid fa-paper-plane"
+                                            ></i>
+                                            Submit
+                                        </button>
+                                        <div id="hold-on-a-sec">
+                                            <i
+                                                id="contact-spinner"
+                                                class="fas fa-spinner fa-spin"
+                                            ></i>
+                                            Enviando tu información, por favor
+                                            espera un momento....
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-			</footer>
-			<!-- /footer -->
+        <section class="py-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		</div>
-		<!-- /wrapper -->
+        <footer class="pt-30 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 my-auto">
+                        <a class="anchor" id="btn-logo" href="#">
+                            <img
+                                class="logo img-fluid mb-4 mb-lg-0"
+                                alt="Thermopac"
+                                src="<?php echo esc_url(
+                                    get_template_directory_uri(),
+                                ); ?>/assets/images/logo-light@2x.png"
+                                data-theme-light="<?php echo esc_url(
+                                    get_template_directory_uri(),
+                                ); ?>/assets/images/logo-light@2x.png"
+                                data-theme-dark="<?php echo esc_url(
+                                    get_template_directory_uri(),
+                                ); ?>/assets/images/logo-dark@2x.png"
+                            />
+                        </a>
+                    </div>
+                    <div class="col-lg-7 my-auto text-center">
+                        <nav class="my-4 my-lg-0">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#" class="active">Home</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Services</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Markets</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">News and Events</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Contact Us</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 my-auto text-center text-lg-end">
+                        <ul
+                            class="certificaciones list-unstyled mt-4 mt-lg-0 mb-0"
+                        >
+                            <li class="list-inline-item">
+                                <img
+                                    class="img-fluid"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/certificaciones/1.png"
+                                    alt=""
+                                />
+                            </li>
+                            <li class="list-inline-item">
+                                <img
+                                    class="img-fluid"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/certificaciones/2.png"
+                                    alt=""
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-		<?php wp_footer(); ?>
+        <!-- Search Overlay -->
+        <div id="search-overlay" class="search-overlay">
+            <div class="search-overlay-content">
+                <button id="search-close" class="search-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="search-input"
+                        class="search-input"
+                        placeholder="Search..."
+                        autocomplete="off"
+                    />
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+            </div>
+        </div>
 
-		<!-- analytics -->
-		<script>
-		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-		ga('send', 'pageview');
-		</script>
+        <?php wp_footer(); ?>
 
-	</body>
+        <script src="<?php echo esc_url(
+            get_template_directory_uri(),
+        ); ?>/assets/js/app.bundle.js" defer></script>
+    </body>
 </html>
