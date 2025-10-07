@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const swiperHeader = new Swiper(".swiper-header", {
         // configure Swiper to use modules
         modules: [Navigation],
+        watchOverflow: true,
 
         // Navigation arrows
         navigation: {
@@ -159,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         mousewheel: false,
         slidesPerView: 1,
+        watchOverflow: true,
 
         breakpoints: {
             576: {
