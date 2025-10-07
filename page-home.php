@@ -19,9 +19,7 @@ get_header(); ?>
                                     get_sub_field("image"),
                                 ); ?>') no-repeat;">
                                     <div class="overlay"></div>
-                                    <h1><?php echo get_sub_field(
-                                        "title",
-                                    ); ?></h1>
+                                    <h1><?php the_sub_field("title"); ?></h1>
                                 </div>
                             <?php
                             endwhile; ?>
@@ -576,4 +574,5 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
  ?>
