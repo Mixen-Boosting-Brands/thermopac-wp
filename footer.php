@@ -197,22 +197,37 @@
                         <nav class="my-4 my-lg-0">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <a href="#" class="active">Home</a>
+                                    <a href="<?php echo esc_url(
+                                        home_url(),
+                                    ); ?>" class="active">Home</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">About Us</a>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(33),
+                                    ); ?>">About Us</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">Services</a>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(35),
+                                    ); ?>">Services</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">Markets</a>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(37),
+                                    ); ?>">Design</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">News and Events</a>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(39),
+                                    ); ?>">Markets</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">Contact Us</a>
+                                    <a href="<?php if (!is_home()):
+                                        echo esc_url(home_url());
+                                    endif; ?>#news-and-events">News and Events</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#contact">Contact Us</a>
                                 </li>
                             </ul>
                         </nav>

@@ -348,7 +348,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="posts">
+<section id="news-and-events" class="posts">
     <div class="container">
         <div class="row">
             <div
@@ -515,6 +515,7 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
  ?>
  ?>
  ?>
