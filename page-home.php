@@ -140,97 +140,38 @@ get_header(); ?>
                         >
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <!-- Slide -->
-                                <div
-                                    class="swiper-slide rounded"
-                                    style="
-                                        background: url(&quot;<?php echo esc_url(
-                                            get_template_directory_uri(),
-                                        ); ?>/assets/images/slide-1.png&quot;)
-                                            no-repeat;
-                                    "
-                                >
-                                    <a href="#"></a>
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <h1>
-                                            Complete<br />Thermoforming
-                                            Solutions
-                                        </h1>
-                                        <p>
-                                            Protecting and adding value
-                                        </p>
-                                    </div>
-                                </div>
+                                <?php
+                                $args = [
+                                    "post_type" => "services",
+                                    "posts_per_page" => -1,
+                                ];
+                                $services_query = new WP_Query($args);
+                                if ($services_query->have_posts()):
+                                    while ($services_query->have_posts()):
 
-                                <!-- Slide -->
-                                <div
-                                    class="swiper-slide rounded"
-                                    style="
-                                        background: url(&quot;<?php echo esc_url(
-                                            get_template_directory_uri(),
-                                        ); ?>/assets/images/slide-1.png&quot;)
-                                            no-repeat;
-                                    "
-                                >
-                                    <a href="#"></a>
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <h1>
-                                            Complete<br />Thermoforming
-                                            Solutions
-                                        </h1>
-                                        <p>
-                                            Protecting and adding value
-                                        </p>
+                                        $services_query->the_post();
+                                        $featured_img_url = get_the_post_thumbnail_url(
+                                            get_the_ID(),
+                                            "full",
+                                        );
+                                        ?>
+                                    <div class="swiper-slide rounded" style="background: url('<?php echo esc_url(
+                                        $featured_img_url,
+                                    ); ?>') no-repeat;">
+                                        <a href="<?php the_permalink(); ?>"></a>
+                                        <div class="overlay"></div>
+                                        <div class="caption">
+                                            <h1><?php the_title(); ?></h1>
+                                            <p><?php the_field(
+                                                "subtitle",
+                                            ); ?></p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <!-- Slide -->
-                                <div
-                                    class="swiper-slide rounded"
-                                    style="
-                                        background: url(&quot;<?php echo esc_url(
-                                            get_template_directory_uri(),
-                                        ); ?>/assets/images/slide-1.png&quot;)
-                                            no-repeat;
-                                    "
-                                >
-                                    <a href="#"></a>
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <h1>
-                                            Complete<br />Thermoforming
-                                            Solutions
-                                        </h1>
-                                        <p>
-                                            Protecting and adding value
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Slide -->
-                                <div
-                                    class="swiper-slide rounded"
-                                    style="
-                                        background: url(&quot;<?php echo esc_url(
-                                            get_template_directory_uri(),
-                                        ); ?>/assets/images/slide-1.png&quot;)
-                                            no-repeat;
-                                    "
-                                >
-                                    <a href="#"></a>
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <h1>
-                                            Complete<br />Thermoforming
-                                            Solutions
-                                        </h1>
-                                        <p>
-                                            Protecting and adding value
-                                        </p>
-                                    </div>
-                                </div>
+                                <?php
+                                    endwhile;
+                                    wp_reset_postdata();
+                                endif;
+                                ?>
                             </div>
 
                             <!-- If we need navigation buttons -->
@@ -243,7 +184,7 @@ get_header(); ?>
                     <div class="col text-center">
                         <a
                             class="btn btn-lg rounded-pill"
-                            href="#"
+                            href="#contact"
                             data-aos="fade-up"
                             data-aos-duration="1500"
                             data-aos-delay="400"
@@ -574,5 +515,8 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
+ ?>
+ ?>
  ?>
  ?>
