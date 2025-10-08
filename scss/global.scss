@@ -10,6 +10,7 @@ body {
     font-family: "circular_stdbook", sans-serif;
     font-weight: normal;
     padding-top: 100px;
+    scroll-padding-top: 100px;
     position: relative;
     @include font-size(1.4rem);
 
