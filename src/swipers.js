@@ -17,6 +17,24 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 document.addEventListener("DOMContentLoaded", function () {
+    /**
+     * Updates navigation buttons visibility based on whether the swiper is locked.
+     * @param {Swiper} swiper The swiper instance.
+     */
+    function updateNavigationButtons(swiper) {
+        if (swiper.navigation) {
+            const { nextEl, prevEl } = swiper.navigation;
+
+            if (swiper.isLocked) {
+                nextEl.style.display = "none";
+                prevEl.style.display = "none";
+            } else {
+                nextEl.style.display = "";
+                prevEl.style.display = "";
+            }
+        }
+    }
+
     // init Swiper:
     const swiperHeader = new Swiper(".swiper-header", {
         // configure Swiper to use modules
@@ -27,6 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
+        },
+
+        on: {
+            init: updateNavigationButtons,
+            resize: updateNavigationButtons,
         },
     });
 
@@ -79,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         on: {
             init: function () {
+                updateNavigationButtons(this);
                 // Force update to ensure proper rendering
                 setTimeout(() => {
                     this.updateSlides();
@@ -99,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             resize: function () {
+                updateNavigationButtons(this);
                 // Force update on resize
                 setTimeout(() => {
                     this.updateSlides();
@@ -185,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         on: {
             init: function () {
+                updateNavigationButtons(this);
                 if (this.params.slidesPerView === 3) {
                     const centerIndex = this.activeIndex + 1;
                     this.slides[centerIndex].classList.add("active");
@@ -200,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             resize: function () {
+                updateNavigationButtons(this);
                 if (this.params.slidesPerView === 3) {
                     const centerIndex = this.activeIndex + 1;
                     this.slides.forEach((slide) => {
