@@ -23,7 +23,7 @@
                         <div
                             class="swiper-slide"
                             style="
-                                background: url(''<?php echo esc_url(
+                                background: url('<?php echo esc_url(
                                     $background_image_url,
                                 ); ?>')
                                     no-repeat;
