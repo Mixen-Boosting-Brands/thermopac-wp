@@ -9,17 +9,28 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slide -->
+                        <?php
+                        $background_image_url = get_the_post_thumbnail_url(
+                            get_the_ID(),
+                            "full",
+                        );
+                        if (!$background_image_url) {
+                            $background_image_url =
+                                get_template_directory_uri() .
+                                "/assets/images/slide-1.png";
+                        }
+                        ?>
                         <div
                             class="swiper-slide"
                             style="
-                                background: url('<?php echo esc_url(
-                                    get_template_directory_uri(),
-                                ); ?>/assets/images/slide-1.png')
+                                background: url(''<?php echo esc_url(
+                                    $background_image_url,
+                                ); ?>')
                                     no-repeat;
                             "
                         >
                             <div class="overlay"></div>
-                            <h1>Design</h1>
+                            <h1><?php the_title(); ?></h1>
                         </div>
                     </div>
 
