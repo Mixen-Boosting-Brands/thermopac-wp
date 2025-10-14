@@ -1,5 +1,47 @@
 <?php get_header(); ?>
 
+<section id="header-inner" class="pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Slider main container -->
+                <div class="swiper-header rounded">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <div
+                            class="swiper-slide"
+                            style="
+                                background: url(&quot;./assets/images/slide-1.png&quot;)
+                                    no-repeat;
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <h1>Design</h1>
+                        </div>
+
+                        <!-- Slide -->
+                        <div
+                            class="swiper-slide"
+                            style="
+                                background: url(&quot;./assets/images/slide-1.png&quot;)
+                                    no-repeat;
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <h1>Design</h1>
+                        </div>
+                    </div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="pt-60 pb-30">
     <div class="container">
         <div class="container">
@@ -30,15 +72,74 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
                                 />
                             </div>
                         </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    alt=""
+                                    class="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    alt=""
+                                    class="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    alt=""
+                                    class="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    alt=""
+                                    class="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img
+                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    alt=""
+                                    class="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
