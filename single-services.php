@@ -12,7 +12,9 @@
                         <div
                             class="swiper-slide"
                             style="
-                                background: url(&quot;./assets/images/slide-1.png&quot;)
+                                background: url('<?php echo esc_url(
+                                    get_template_directory_uri(),
+                                ); ?>/assets/images/slide-1.png')
                                     no-repeat;
                             "
                         >
@@ -24,7 +26,9 @@
                         <div
                             class="swiper-slide"
                             style="
-                                background: url(&quot;./assets/images/slide-1.png&quot;)
+                                background: url('<?php echo esc_url(
+                                    get_template_directory_uri(),
+                                ); ?>/assets/images/slide-1.png')
                                     no-repeat;
                             "
                         >
@@ -72,7 +76,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
@@ -84,7 +90,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
@@ -96,7 +104,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
@@ -108,7 +118,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
@@ -120,7 +132,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
@@ -132,7 +146,9 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <img
-                                    src="./assets/images/about-us/slider-1/slide-1.png"
+                                    src="<?php echo esc_url(
+                                        get_template_directory_uri(),
+                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
                                     alt=""
                                     class="img-fluid"
                                     loading="lazy"
