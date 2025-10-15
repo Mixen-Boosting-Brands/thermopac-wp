@@ -40,32 +40,27 @@ get_header(); ?>
         <div class="row">
             <div class="col-lg-6 my-auto">
                 <div>
+                    <?php
+                    $about_us_headline = get_field("about_us_headline");
+                    if ($about_us_headline): ?>
                     <h1
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
                     >
-                        Your <span>trusted</span> Thermoforming
+                        <?php echo $about_us_headline; ?>
                     </h1>
+                    <?php endif;
+                    ?>
+                    <?php
+                    $about_us_text = get_field("about_us_text");
+                    if ($inferior_text): ?>
                     <p
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="100"
                     >
-                        We are an innovative company dedicated to
-                        designing and manufacturing reliable and
-                        cost-effective custom thermoformed packaging
-                        solutions. Started operations in 2003 to supply
-                        the thermoformed packaging needs of the maquila
-                        industry.
-                    </p>
-                    <p
-                        data-aos="fade-up"
-                        data-aos-duration="1500"
-                        data-aos-delay="200"
-                    >
-                        Located in <strong>Juarez, Chihuahua</strong>,
-                        neighboring city of El Paso, Texas.
+                        <?php echo $about_us_text; ?>
                     </p>
                     <a
                         class="btn btn-primary btn-lg rounded-pill"
@@ -107,24 +102,32 @@ get_header(); ?>
                     >
                         <div class="row">
                             <div class="col-12 col-md-6">
+                                <?php
+                                $our_services_headline = get_field("our_services_headline");
+                                if ($our_services_headline): ?>
                                 <h1
                                     data-aos="fade-up"
                                     data-aos-duration="1500"
                                     data-aos-delay="0"
                                 >
-                                    Our Services
+                                    <?php echo $our_services_headline; ?>
                                 </h1>
+                                <?php endif;
+                                ?>
                             </div>
                             <div class="col-12 col-md-6">
+                                <?php
+                                $our_services_text = get_field("our_services_text");
+                                if ($inferior_text): ?>
                                 <p
                                     data-aos="fade-up"
                                     data-aos-duration="1500"
                                     data-aos-delay="100"
                                 >
-                                    Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit.
-                                    Officiis aliquid sequi consequuntur
+                                    <?php echo $our_services_text; ?>
                                 </p>
+                                <?php endif;
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -199,24 +202,34 @@ get_header(); ?>
     </div>
 </section>
 
-<section id="services" class="cards pt-30 pb-60">
+<section id="markets" class="cards pt-30 pb-60">
     <div class="container">
         <div class="row mb-4">
             <div class="col text-center">
+                <?php
+                $our_markets_headline = get_field("our_markets_headline");
+                if ($our_services_headline): ?>
                 <h1
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
-                    Our <span>Markets</span>
+                    <?php echo $our_markets_headline; ?>
                 </h1>
+                <?php endif;
+                ?>
+                <?php
+                $our_markets_text = get_field("our_markets_text");
+                if ($our_markets_text): ?>
                 <p
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="100"
                 >
-                    Click on the service that you'd like to know about.
+                    <?php echo $our_markets_text; ?>
                 </p>
+                <?php endif;
+                ?>
             </div>
         </div>
         <div class="row">
@@ -515,6 +528,7 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
  ?>
  ?>
  ?>
