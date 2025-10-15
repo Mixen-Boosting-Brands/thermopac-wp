@@ -200,7 +200,7 @@
                                     <a href="<?php echo esc_url(
                                         home_url(),
                                     ); ?>" <?php if (
-    is_home()
+    is_front_page()
 ): ?>class="active"<?php endif; ?>>Home</a>
                                 </li>
                                 <li class="list-inline-item">
