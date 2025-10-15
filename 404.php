@@ -1,24 +1,62 @@
 <?php get_header(); ?>
 
-	<main role="main" aria-label="Content">
-		<!-- section -->
-		<section>
+<?php if (have_posts()):
+    while (have_posts()):
+        the_post(); ?>
 
-			<!-- article -->
-			<article id="post-404">
+<section id="header-inner" class="pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Slider main container -->
+                <div class="swiper-header rounded">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <?php
+                        $background_image_url = get_the_post_thumbnail_url(
+                            get_the_ID(),
+                            "full",
+                        );
+                        if (!$background_image_url) {
+                            $background_image_url =
+                                get_template_directory_uri() .
+                                "/assets/images/slide-1.png";
+                        }
+                        ?>
+                        <div
+                            class="swiper-slide"
+                            style="
+                                background: url('<?php echo esc_url(
+                                    $background_image_url,
+                                ); ?>')
+                                    no-repeat;
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <h1>Error 404</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-				<h1><?php esc_html_e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Return home?', 'html5blank' ); ?></a>
-				</h2>
+<section class="post py-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1>Error 404</h1>
 
-			</article>
-			<!-- /article -->
+                We're sorry, but the page you're looking for doesn't exist.
+            </div>
+        </div>
+    </div>
+</section>
 
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+<?php
+    endwhile;
+endif; ?>
 
 <?php get_footer(); ?>
