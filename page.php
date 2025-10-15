@@ -1,45 +1,62 @@
 <?php get_header(); ?>
 
-	<main role="main" aria-label="Content">
-		<!-- section -->
-		<section>
+<?php if (have_posts()):
+    while (have_posts()):
+        the_post(); ?>
 
-			<h1><?php the_title(); ?></h1>
+<section id="header-inner" class="pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Slider main container -->
+                <div class="swiper-header rounded">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <?php
+                        $background_image_url = get_the_post_thumbnail_url(
+                            get_the_ID(),
+                            "full",
+                        );
+                        if (!$background_image_url) {
+                            $background_image_url =
+                                get_template_directory_uri() .
+                                "/assets/images/slide-1.png";
+                        }
+                        ?>
+                        <div
+                            class="swiper-slide"
+                            style="
+                                background: url('<?php echo esc_url(
+                                    $background_image_url,
+                                ); ?>')
+                                    no-repeat;
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <h1><?php the_title(); ?></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-		<?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
+<section class="post py-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1><?php the_title(); ?></h1>
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <?php the_content(); ?>
+            </div>
+        </div>
+    </div>
+</section>
 
-				<?php the_content(); ?>
-
-				<?php comments_template( '', true ); // Remove if you don't want comments. ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else : ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php esc_html_e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+<?php
+    endwhile;
+endif; ?>
 
 <?php get_footer(); ?>
