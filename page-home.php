@@ -166,7 +166,9 @@ get_header(); ?>
                                     <div class="swiper-slide rounded" style="background: url('<?php echo esc_url(
                                         $featured_img_url,
                                     ); ?>') no-repeat;">
-                                        <a href="<?php the_permalink(); ?>"></a>
+                                        <a href="<?php echo esc_url(
+                                            get_permalink(35),
+                                        ); ?>#services"></a>
                                         <div class="overlay"></div>
                                         <div class="caption">
                                             <h1><?php the_title(); ?></h1>
