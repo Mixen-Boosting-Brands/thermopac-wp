@@ -284,6 +284,21 @@
             </div>
         </div>
 
+        <!-- Service Modal -->
+        <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" id="modalImage" class="img-fluid mb-4" alt="Service Image">
+                        <div id="modalDescription"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <?php wp_footer(); ?>
 
         <script src="<?php echo esc_url(

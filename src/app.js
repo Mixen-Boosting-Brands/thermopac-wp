@@ -8,6 +8,7 @@ import "../src/form-ajax";
 import "../src/aos";
 import "../src/search-input";
 import "../src/swipers";
+import "../src/modals";
 
 // Header
 document.addEventListener("DOMContentLoaded", function () {

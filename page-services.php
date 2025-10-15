@@ -173,6 +173,8 @@ get_header(); ?>
                 $icon = get_sub_field("icon");
                 $name = get_sub_field("name");
                 $text = get_sub_field("text");
+                $modal_image = get_sub_field("image");
+                $modal_description = get_sub_field("description");
                 ?>
             <div
                 class="col-lg-3 mb-4 mb-lg-0 text-center"
@@ -181,7 +183,11 @@ get_header(); ?>
                 data-aos-delay="<?php echo $delay_count; ?>"
             >
                 <div class="card">
-                    <a href="<?php echo esc_url(get_permalink(39)); ?>">
+                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-image="<?php echo esc_url(
+                        $modal_image,
+                    ); ?>" data-bs-description="<?php echo esc_attr(
+    $modal_description,
+); ?>">
                         <img
                             src="<?php echo esc_url($icon); ?>"
                             class="card-img-top mb-3"
@@ -189,7 +195,11 @@ get_header(); ?>
                         />
                     </a>
                     <div class="card-body">
-                        <a href="javascript:void(0);">
+                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-image="<?php echo esc_url(
+                            $modal_image,
+                        ); ?>" data-bs-description="<?php echo esc_attr(
+    $modal_description,
+); ?>">
                             <h4 class="card-title mb-3"><?php echo $name; ?></h4>
                         </a>
                         <p class="card-text my-4">
