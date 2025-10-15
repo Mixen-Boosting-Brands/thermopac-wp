@@ -238,132 +238,47 @@ get_header(); ?>
                 ?>
             </div>
         </div>
+        <?php if (have_rows("markets")): ?>
         <div class="row">
+            <?php
+            $delay_count = 0;
+            while (have_rows("markets")):
+
+                the_row();
+                $delay_count += 100;
+                $icon = get_sub_field("icon");
+                $name = get_sub_field("name");
+                $text = get_sub_field("text");
+                ?>
             <div
                 class="col-lg-3 mb-4 mb-lg-0 text-center"
                 data-aos="fade-up"
                 data-aos-duration="1500"
-                data-aos-delay="100"
+                data-aos-delay="<?php echo $delay_count; ?>"
             >
                 <div class="card">
-                    <a href="#">
+                    <a href="<?php echo esc_url(get_permalink(39)); ?>">
                         <img
-                            src="<?php echo esc_url(
-                                get_template_directory_uri(),
-                            ); ?>/assets/images/medical-icon@2x.png"
+                            src="<?php echo esc_url($icon); ?>"
                             class="card-img-top mb-3"
-                            alt="Medical"
+                            alt="<?php echo esc_attr($name); ?>"
                         />
                     </a>
                     <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title mb-3">Medical</h4>
+                        <a href="<?php echo esc_url(get_permalink(39)); ?>">
+                            <h4 class="card-title mb-3"><?php echo $name; ?></h4>
                         </a>
                         <p class="card-text my-4">
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Beatae commodi sed totam
-                            quo ipsum rerum, illo esse illum excepturi
-                            fugiat omnis nihil enim velit natus
-                            architecto tempora fuga perspiciatis.
-                            Facere.
+                            <?php echo $text; ?>
                         </p>
                     </div>
                 </div>
             </div>
-            <div
-                class="col-lg-3 mb-4 mb-lg-0 text-center"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-                data-aos-delay="200"
-            >
-                <div class="card">
-                    <a href="#">
-                        <img
-                            src="<?php echo esc_url(
-                                get_template_directory_uri(),
-                            ); ?>/assets/images/automotive-icon@2x.png"
-                            class="card-img-top mb-3"
-                            alt="Automotive"
-                        />
-                    </a>
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title mb-3">Automotive</h4>
-                        </a>
-                        <p class="card-text my-4">
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Beatae commodi sed totam
-                            quo ipsum rerum, illo esse illum excepturi
-                            fugiat omnis nihil enim velit natus
-                            architecto tempora fuga perspiciatis.
-                            Facere.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="col-lg-3 mb-4 mb-lg-0 text-center"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-                data-aos-delay="300"
-            >
-                <div class="card">
-                    <a href="#">
-                        <img
-                            src="<?php echo esc_url(
-                                get_template_directory_uri(),
-                            ); ?>/assets/images/retail-icon@2x.png"
-                            class="card-img-top mb-3"
-                            alt="Retail"
-                        />
-                    </a>
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title mb-3">Retail</h4>
-                        </a>
-                        <p class="card-text my-4">
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Beatae commodi sed totam
-                            quo ipsum rerum, illo esse illum excepturi
-                            fugiat omnis nihil enim velit natus
-                            architecto tempora fuga perspiciatis.
-                            Facere.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="col-lg-3 mb-4 mb-lg-0 text-center"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-                data-aos-delay="400"
-            >
-                <div class="card">
-                    <a href="#">
-                        <img
-                            src="<?php echo esc_url(
-                                get_template_directory_uri(),
-                            ); ?>/assets/images/electronics-icon@2x.png"
-                            class="card-img-top mb-3"
-                            alt="Electronics"
-                        />
-                    </a>
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title mb-3">Electronics</h4>
-                        </a>
-                        <p class="card-text my-4">
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Beatae commodi sed totam
-                            quo ipsum rerum, illo esse illum excepturi
-                            fugiat omnis nihil enim velit natus
-                            architecto tempora fuga perspiciatis.
-                            Facere.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <?php
+            endwhile;
+            ?>
         </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -534,6 +449,9 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
+ ?>
+ ?>
  ?>
  ?>
  ?>
