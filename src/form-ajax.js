@@ -1,91 +1,69 @@
 // Formulario + Validación
-'use strict';
-window.addEventListener('load', function () {
-    // Get the messages div.
-    var formMessages = $('#form-messages');
+"use strict";
+window.addEventListener(
+    "load",
+    function () {
+        // Get the messages div.
+        const formMessages = $("#form-messages");
+        const loadingSpinner = $("#hold-on-a-sec");
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener('submit', function (event) {
-            if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.getElementsByClassName("needs-validation");
+        // Loop over them and prevent submission
+        Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener(
+                "submit",
+                function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
 
-            if (form.checkValidity() === true) {
-                event.preventDefault();
-
-                // To reset the appearance of the form
-                form.classList.remove("was-validated");
-
-                // Submit the form using AJAX
-                $.ajax({
-                    type: $(form).attr('method'),
-                    url: $(form).attr('action'),
-                    data: new FormData(form),
-                    processData: false,
-                    contentType: false,
-                    beforeSend: function () {
-                        // Let's show a message to the user
-                        $('#hold-on-a-sec').addClass('is-loading');
-                    },
-                    success: function (response) {
-                        // Make sure that the formMessages div has the 'success' class.
-                        $(form).removeClass('was-validated');
-                        $(formMessages).removeClass('error');
-                        $(formMessages).addClass('success');
-
-                        // Set the message text.
-                        $(formMessages).text(response);
-                        console.log(response);
-
-                        setTimeout(function () {
-                            $(formMessages).remove();
-
-                            // Clear the form.
-                            $('#nombre').val('');
-                            $('#telefono').val('');
-                            $('#correo').val('');
-                            $('#ciudad').val('');
-                            $('#mensaje').val('');
-                        }, 5000);
-                    },
-                    error: function (response) {
-                        // Make sure that the formMessages div has the 'error' class.
-                        $('#hold-on-a-sec').removeClass('is-loading');
-                        $(formMessages).removeClass('success');
-                        $(formMessages).addClass('error');
-
-                        // Set the message text.
-                        $(formMessages).text(response);
-                        console.log(response);
-
-                        setTimeout(function () {
-                            $(formMessages).remove();
-
-                            // Clear the form.
-                            $('#nombre').val('');
-                            $('#telefono').val('');
-                            $('#correo').val('');
-                            $('#ciudad').val('');
-                            $('#mensaje').val('');
-                        }, 5000);
-
-                        // Set the message text.
-                        if (response.responseText !== '') {
-                            $(formMessages).text(response.responseText);
-                        } else {
-                            $(formMessages).text('We\'re so sorry, something went horribly wrong.');
-                        }
-                    },
-                    complete: function () {
-                        $('#hold-on-a-sec').removeClass('is-loading');
+                    if (form.checkValidity() === false) {
+                        form.classList.add("was-validated");
+                        return;
                     }
-                });
-            }
-        }, false);
-    });
-}, false);
+
+                    // If form is valid, proceed with AJAX
+                    form.classList.remove("was-validated");
+
+                    // Get form data
+                    const formData = new FormData(form);
+
+                    // Submit the form using AJAX
+                    $.ajax({
+                        type: $(form).attr("method"),
+                        url: $(form).attr("action"),
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function () {
+                            loadingSpinner.addClass("is-loading");
+                        },
+                        success: function (response) {
+                            formMessages.removeClass("error").addClass("success");
+                            formMessages.text(response);
+
+                            // Clear the form fields with correct IDs
+                            form.reset();
+                        },
+                        error: function (response) {
+                            formMessages.removeClass("success").addClass("error");
+                            // Set the message text.
+                            if (response.responseText !== "") {
+                                formMessages.text(response.responseText);
+                            } else {
+                                formMessages.text(
+                                    "We're so sorry, something went wrong.",
+                                );
+                            }
+                        },
+                        complete: function () {
+                            loadingSpinner.removeClass("is-loading");
+                        },
+                    });
+                },
+                false,
+            );
+        });
+    },
+    false,
+);

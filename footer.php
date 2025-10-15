@@ -118,7 +118,7 @@
                                             placeholder="Message*"
                                             required
                                         ></textarea>
-                                        <label for="mensaje">Message*</label>
+                                        <label for="message">Message*</label>
                                         <div class="valid-feedback">
                                             It looks good!
                                         </div>
