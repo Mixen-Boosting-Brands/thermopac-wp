@@ -37,10 +37,6 @@ get_header(); ?>
                             <h1><?php the_title(); ?></h1>
                         </div>
                     </div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>

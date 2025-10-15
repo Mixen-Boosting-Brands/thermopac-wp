@@ -25,10 +25,6 @@ get_header(); ?>
                             endwhile; ?>
                         <?php endif; ?>
                     </div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
