@@ -137,22 +137,30 @@
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
                                         home_url(),
-                                    ); ?>" class="active">Home</a>
+                                    ); ?>" <?php if (
+    is_home()
+): ?>class="active"<?php endif; ?>>Home</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
                                         get_permalink(33),
-                                    ); ?>">About Us</a>
+                                    ); ?>" <?php if (
+    is_page(33)
+): ?>class="active"<?php endif; ?>>About Us</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
                                         get_permalink(35),
-                                    ); ?>"">Services</a>
+                                    ); ?>" <?php if (
+    is_page(35)
+): ?>class="active"<?php endif; ?>>Services</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
                                         get_permalink(39),
-                                    ); ?>">Markets</a>
+                                    ); ?>" <?php if (
+    is_page(39)
+): ?>class="active"<?php endif; ?>>Markets</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="<?php if (!is_home()):
