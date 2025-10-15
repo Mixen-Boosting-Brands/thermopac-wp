@@ -170,11 +170,28 @@ get_header(); ?>
 
                 the_row();
                 $delay_count += 100;
+
+                // Get all sub fields
                 $icon = get_sub_field("icon");
                 $name = get_sub_field("name");
                 $text = get_sub_field("text");
                 $modal_image = get_sub_field("image");
                 $modal_description = get_sub_field("description");
+
+                // --- Conditional Logic ---
+                $is_thermoforming = $name === "Thermoforming";
+                if ($is_thermoforming) {
+                    $link_href = esc_url(get_permalink(12));
+                    $link_attributes = ""; // No modal attributes needed
+                } else {
+                    $link_href = "javascript:void(0);";
+                    $link_attributes = sprintf(
+                        'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-image="%s" data-bs-description="%s"',
+                        esc_attr($name),
+                        esc_url($modal_image),
+                        base64_encode($modal_description),
+                    );
+                }
                 ?>
             <div
                 class="col-lg-3 mb-4 mb-lg-0 text-center"
@@ -183,14 +200,7 @@ get_header(); ?>
                 data-aos-delay="<?php echo $delay_count; ?>"
             >
                 <div class="card">
-                    <a href="javascript:void(0);"
-                       data-bs-toggle="modal"
-                       data-bs-target="#serviceModal"
-                       data-bs-name="<?php echo esc_attr($name); ?>"
-                       data-bs-image="<?php echo esc_url($modal_image); ?>"
-                       data-bs-description="<?php echo base64_encode(
-                           $modal_description,
-                       ); ?>">
+                    <a href="<?php echo $link_href; ?>" <?php echo $link_attributes; ?>>
                         <img
                             src="<?php echo esc_url($icon); ?>"
                             class="card-img-top mb-3"
@@ -198,14 +208,7 @@ get_header(); ?>
                         />
                     </a>
                     <div class="card-body">
-                        <a href="javascript:void(0);"
-                           data-bs-toggle="modal"
-                           data-bs-target="#serviceModal"
-                           data-bs-name="<?php echo esc_attr($name); ?>"
-                           data-bs-image="<?php echo esc_url($modal_image); ?>"
-                           data-bs-description="<?php echo base64_encode(
-                               $modal_description,
-                           ); ?>">
+                        <a href="<?php echo $link_href; ?>" <?php echo $link_attributes; ?>>
                             <h4 class="card-title mb-3"><?php echo $name; ?></h4>
                         </a>
                         <p class="card-text my-4">
