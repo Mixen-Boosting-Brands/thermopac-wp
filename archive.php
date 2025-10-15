@@ -37,9 +37,11 @@
             endif; ?>
         </div>
 
-        <div class="row mt-5">
-            <div class="col">
-                <?php the_posts_pagination([
+        <div class="row">
+            <div class="col text-center">
+                <?php // Pagination
+
+the_posts_pagination([
                     "mid_size" => 2,
                     "prev_text" => __("&laquo; Previous", "textdomain"),
                     "next_text" => __("Next &raquo;", "textdomain"),
