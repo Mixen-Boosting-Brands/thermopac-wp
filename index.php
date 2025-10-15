@@ -67,7 +67,7 @@
                     </p>
                     <a
                         class="btn btn-primary btn-lg rounded-pill"
-                        href="#"
+                        href="<?php echo esc_url(get_permalink(33)); ?>"
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="300"
