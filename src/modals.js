@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (serviceModal) {
         serviceModal.addEventListener("show.bs.modal", function (event) {
-            // -- DEBUGGING --
-            console.log("Modal trigger event fired.");
-
             // Button that triggered the modal
             const button = event.relatedTarget;
             if (!button) {
@@ -14,21 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Extract info from data-bs-* attributes
+            const name = button.getAttribute("data-bs-name");
             const imageUrl = button.getAttribute("data-bs-image");
             const encodedDescription =
                 button.getAttribute("data-bs-description");
 
-            // -- DEBUGGING --
-            console.log("Image URL from data attribute:", imageUrl);
-            console.log(
-                "Encoded Description from data attribute:",
-                encodedDescription,
-            );
-
             // Update the modal's content
+            const modalTitle = serviceModal.querySelector("#serviceModalLabel");
             const modalImage = serviceModal.querySelector("#modalImage");
             const modalDescription =
                 serviceModal.querySelector("#modalDescription");
+
+            // Update title
+            if (modalTitle) {
+                modalTitle.textContent = name || "";
+            }
 
             // Update image
             if (modalImage) {

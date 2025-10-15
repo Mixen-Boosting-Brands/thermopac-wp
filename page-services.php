@@ -186,6 +186,7 @@ get_header(); ?>
                     <a href="javascript:void(0);"
                        data-bs-toggle="modal"
                        data-bs-target="#serviceModal"
+                       data-bs-name="<?php echo esc_attr($name); ?>"
                        data-bs-image="<?php echo esc_url($modal_image); ?>"
                        data-bs-description="<?php echo base64_encode(
                            $modal_description,
@@ -200,6 +201,7 @@ get_header(); ?>
                         <a href="javascript:void(0);"
                            data-bs-toggle="modal"
                            data-bs-target="#serviceModal"
+                           data-bs-name="<?php echo esc_attr($name); ?>"
                            data-bs-image="<?php echo esc_url($modal_image); ?>"
                            data-bs-description="<?php echo base64_encode(
                                $modal_description,
