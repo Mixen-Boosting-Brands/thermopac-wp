@@ -48,17 +48,21 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col text-center">
+                    <?php
+                    $superior_headline = get_field("superior_headline");
+                    if ($superior_headline): ?>
                     <h1
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
                     >
-                        Design <span>& engineering</span><br />
-                        are the foundation of every succesfull packaging
-                        solution
+                        <?php echo $superior_headline; ?>
                     </h1>
+                    <?php endif;
+                    ?>
                 </div>
             </div>
+            <?php if (have_rows("images")): ?>
             <div class="row mb-5">
                 <!-- Slider main container -->
                 <div
@@ -69,89 +73,24 @@
                 >
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
+                        <?php while (have_rows("images")):
+                            the_row(); ?>
+                            <?php $image_url = get_sub_field("image"); ?>
+                            <?php if ($image_url): ?>
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img
+                                        src="<?php echo esc_url($image_url); ?>"
+                                        alt=""
+                                        class="img-fluid"
+                                        loading="lazy"
+                                    />
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/about-us/slider-1/slide-1.png"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
+                            <?php endif; ?>
+                        <?php
+                        endwhile; ?>
                     </div>
 
                     <!-- If we need navigation buttons -->
@@ -159,29 +98,34 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
+            <?php endif; ?>
             <div class="row mb-4">
                 <div class="col text-center">
+                    <?php
+                    $inferior_headline = get_field("inferior_headline");
+                    if ($inferior_headline): ?>
                     <h1
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
                     >
-                        From initial concept
-                        <span class="no-underline"
-                            >through to final production</span
-                        >
+                        <?php echo $inferior_headline; ?>
                     </h1>
+                    <?php endif;
+                    ?>
+
+                    <?php
+                    $inferior_text = get_field("inferior_text");
+                    if ($inferior_text): ?>
                     <p
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="100"
                     >
-                        Using innovative design tools and advanced
-                        manufacturing processes, our experienced
-                        engineering team partners with you to develop a
-                        fully integrated solution tailored to your exact
-                        specifications.
+                        <?php echo $inferior_text; ?>
                     </p>
+                    <?php endif;
+                    ?>
                 </div>
             </div>
         </div>
