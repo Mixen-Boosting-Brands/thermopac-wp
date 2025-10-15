@@ -183,11 +183,13 @@ get_header(); ?>
                 data-aos-delay="<?php echo $delay_count; ?>"
             >
                 <div class="card">
-                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-image="<?php echo esc_url(
-                        $modal_image,
-                    ); ?>" data-bs-description="<?php echo esc_attr(
-    $modal_description,
-); ?>">
+                    <a href="javascript:void(0);"
+                       data-bs-toggle="modal"
+                       data-bs-target="#serviceModal"
+                       data-bs-image="<?php echo esc_url($modal_image); ?>"
+                       data-bs-description="<?php echo base64_encode(
+                           $modal_description,
+                       ); ?>">
                         <img
                             src="<?php echo esc_url($icon); ?>"
                             class="card-img-top mb-3"
@@ -195,11 +197,13 @@ get_header(); ?>
                         />
                     </a>
                     <div class="card-body">
-                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-image="<?php echo esc_url(
-                            $modal_image,
-                        ); ?>" data-bs-description="<?php echo esc_attr(
-    $modal_description,
-); ?>">
+                        <a href="javascript:void(0);"
+                           data-bs-toggle="modal"
+                           data-bs-target="#serviceModal"
+                           data-bs-image="<?php echo esc_url($modal_image); ?>"
+                           data-bs-description="<?php echo base64_encode(
+                               $modal_description,
+                           ); ?>">
                             <h4 class="card-title mb-3"><?php echo $name; ?></h4>
                         </a>
                         <p class="card-text my-4">

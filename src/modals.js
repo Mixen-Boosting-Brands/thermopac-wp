@@ -8,15 +8,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Extract info from data-bs-* attributes
             const imageUrl = button.getAttribute("data-bs-image");
-            const description = button.getAttribute("data-bs-description");
+            const encodedDescription =
+                button.getAttribute("data-bs-description");
+
+            // Decode the base64 description
+            const description = atob(encodedDescription);
 
             // Update the modal's content
             const modalImage = serviceModal.querySelector("#modalImage");
             const modalDescription =
                 serviceModal.querySelector("#modalDescription");
 
-            modalImage.src = imageUrl;
-            modalDescription.innerHTML = description;
+            // Check if elements exist before updating
+            if (modalImage) {
+                modalImage.src = imageUrl;
+            }
+            if (modalDescription) {
+                modalDescription.innerHTML = description;
+            }
         });
     }
 });
