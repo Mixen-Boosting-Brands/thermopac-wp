@@ -124,7 +124,7 @@ get_header(); ?>
                                 $our_services_text = get_field(
                                     "our_services_text",
                                 );
-                                if ($inferior_text): ?>
+                                if ($our_services_text): ?>
                                 <p
                                     data-aos="fade-up"
                                     data-aos-duration="1500"
@@ -534,6 +534,7 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
  ?>
  ?>
  ?>
