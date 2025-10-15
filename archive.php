@@ -11,7 +11,7 @@
                             style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/slide-1.png') no-repeat;"
                         >
                             <div class="overlay"></div>
-                            <h1><?php single_cat_title(); ?></h1>
+                            <h1><?php the_archive_title(); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -31,17 +31,15 @@
             else:
                  ?>
                 <div class="col text-center">
-                    <p>No posts found in this category.</p>
+                    <p>No posts found.</p>
                 </div>
             <?php
             endif; ?>
         </div>
 
-        <div class="row">
-            <div class="col text-center">
-                <?php // Pagination
-
-the_posts_pagination([
+        <div class="row mt-5">
+            <div class="col">
+                <?php the_posts_pagination([
                     "mid_size" => 2,
                     "prev_text" => __("&laquo; Previous", "textdomain"),
                     "next_text" => __("Next &raquo;", "textdomain"),
