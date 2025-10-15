@@ -75,18 +75,21 @@ get_header(); ?>
                 </div>
             </div>
             <div class="col-lg-6 my-auto text-center">
+                <?php
+                $about_us_image = get_field("about_us_image");
+                if ($about_us_image): ?>
                 <figure>
                     <img
                         class="img-fluid mt-3 mt-lg-0"
-                        src="<?php echo esc_url(
-                            get_template_directory_uri(),
-                        ); ?>/assets/images/20-years.png"
-                        alt="20 years of experience"
+                        src="<?php echo esc_url($about_us_image); ?>"
+                        alt="About us image"
                         data-aos="zoom-in"
                         data-aos-duration="1500"
                         data-aos-delay="400"
                     />
                 </figure>
+                <?php endif;
+                ?>
             </div>
         </div>
     </div>
@@ -447,19 +450,3 @@ get_header(); ?>
 </section>
 
 <?php get_footer(); ?>
-?>
-?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
- ?>
