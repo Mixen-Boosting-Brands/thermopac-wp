@@ -177,7 +177,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 my-auto">
-                        <a class="anchor" id="btn-logo" href="#">
+                        <a class="anchor" id="btn-logo" href="<?php echo esc_url(
+                            home_url(),
+                        ); ?>">
                             <img
                                 class="logo img-fluid mb-4 mb-lg-0"
                                 alt="Thermopac"
