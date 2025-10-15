@@ -213,11 +213,6 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
-                                        get_permalink(37),
-                                    ); ?>">Design</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
                                         get_permalink(39),
                                     ); ?>">Markets</a>
                                 </li>
