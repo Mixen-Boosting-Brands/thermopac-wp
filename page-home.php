@@ -304,145 +304,80 @@ get_header(); ?>
                     </div>
                 </div>
                 <div class="row">
+                    <?php
+                    $args = [
+                        "post_type" => "post",
+                        "posts_per_page" => 4,
+                        "orderby" => "date",
+                        "order" => "DESC",
+                    ];
+
+                    $latest_posts = new WP_Query($args);
+                    $delay_count = 0;
+
+                    if ($latest_posts->have_posts()):
+                        while ($latest_posts->have_posts()):
+
+                            $latest_posts->the_post();
+                            $delay_count += 100;
+                            ?>
                     <div
                         class="col-lg-4 mb-4"
                         data-aos="fade-up"
                         data-aos-duration="1500"
-                        data-aos-delay="100"
+                        data-aos-delay="<?php echo $delay_count; ?>"
                     >
                         <div class="card">
-                            <a class="card-img-top-link" href="#">
-                                <span
-                                    class="badge rounded-pill text-bg-light"
-                                    >Corporate</span
-                                >
+                            <a class="card-img-top-link" href="<?php the_permalink(); ?>">
+                                <?php
+                                $categories = get_the_category();
+                                if (!empty($categories)): ?>
+                                <span class="badge rounded-pill text-bg-light">
+                                    <?php echo esc_html(
+                                        $categories[0]->name,
+                                    ); ?>
+                                </span>
+                                <?php endif;
+                                ?>
+
+                                <?php if (has_post_thumbnail()) {
+                                    $thumbnail_url = get_the_post_thumbnail_url(
+                                        get_the_ID(),
+                                        "large",
+                                    );
+                                } else {
+                                    $thumbnail_url =
+                                        get_template_directory_uri() .
+                                        "/assets/images/thumb-news.png";
+                                } ?>
                                 <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/thumb-news.png"
+                                    src="<?php echo esc_url($thumbnail_url); ?>"
                                     class="card-img-top"
-                                    alt="Build up healthy habits and
-                                    strong peaceful life"
+                                    alt="<?php the_title_attribute(); ?>"
                                 />
                             </a>
                             <div class="card-body">
-                                <a href="#">
-                                    <h5 class="card-title">
-                                        Build up healthy habits and
-                                        strong peaceful life
-                                    </h5>
+                                <a href="<?php the_permalink(); ?>">
+                                    <h5 class="card-title"><?php the_title(); ?></h5>
                                 </a>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit.
-                                    Provident est debitis explicabo
-                                    amet, perferendis temporibus
-                                    repudiandae ipsum dolore maiores
-                                    veritatis delectus exercitationem
-                                    recusandae! Quibusdam totam officia
-                                    consequatur accusamus eligendi
-                                    maiores! Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Lorem
-                                    ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                </p>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
                             </div>
                             <div class="card-footer">
-                                <time>Oct 1st, 2025</time>
+                                <time><?php echo get_the_date(); ?></time>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="col-lg-4 mb-4"
-                        data-aos="fade-up"
-                        data-aos-duration="1500"
-                        data-aos-delay="200"
-                    >
-                        <div class="card">
-                            <a class="card-img-top-link" href="#">
-                                <span
-                                    class="badge rounded-pill text-bg-light"
-                                    >Corporate</span
-                                >
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/thumb-news.png"
-                                    class="card-img-top"
-                                    alt="Build up healthy habits and
-                                    strong peaceful life"
-                                />
-                            </a>
-                            <div class="card-body">
-                                <a href="#">
-                                    <h5 class="card-title">
-                                        Build up healthy habits and
-                                        strong peaceful life
-                                    </h5>
-                                </a>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit.
-                                    Provident est debitis explicabo
-                                    amet, perferendis temporibus
-                                    repudiandae ipsum dolore maiores
-                                    veritatis delectus exercitationem
-                                    recusandae! Quibusdam totam officia
-                                    consequatur accusamus eligendi
-                                    maiores!
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <time>Oct 1st, 2025</time>
-                            </div>
-                        </div>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else:
+                         ?>
+                    <div class="col">
+                        <p>No news found.</p>
                     </div>
-                    <div
-                        class="col-lg-4 mb-4"
-                        data-aos="fade-up"
-                        data-aos-duration="1500"
-                        data-aos-delay="300"
-                    >
-                        <div class="card">
-                            <a class="card-img-top-link" href="#">
-                                <span
-                                    class="badge rounded-pill text-bg-light"
-                                    >Corporate</span
-                                >
-                                <img
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/thumb-news.png"
-                                    class="card-img-top"
-                                    alt="Build up healthy habits and
-                                    strong peaceful life"
-                                />
-                            </a>
-                            <div class="card-body">
-                                <a href="#">
-                                    <h5 class="card-title">
-                                        Build up healthy habits and
-                                        strong peaceful life
-                                    </h5>
-                                </a>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit.
-                                    Provident est debitis explicabo
-                                    amet, perferendis temporibus
-                                    repudiandae ipsum dolore maiores
-                                    veritatis delectus exercitationem
-                                    recusandae! Quibusdam totam officia
-                                    consequatur accusamus eligendi
-                                    maiores! Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <time>Oct 1st, 2025</time>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
