@@ -3,27 +3,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (serviceModal) {
         serviceModal.addEventListener("show.bs.modal", function (event) {
+            // -- DEBUGGING --
+            console.log("Modal trigger event fired.");
+
             // Button that triggered the modal
             const button = event.relatedTarget;
+            if (!button) {
+                console.error("Modal triggered without a relatedTarget button.");
+                return;
+            }
 
             // Extract info from data-bs-* attributes
             const imageUrl = button.getAttribute("data-bs-image");
             const encodedDescription =
                 button.getAttribute("data-bs-description");
 
-            // Decode the base64 description
-            const description = atob(encodedDescription);
+            // -- DEBUGGING --
+            console.log("Image URL from data attribute:", imageUrl);
+            console.log(
+                "Encoded Description from data attribute:",
+                encodedDescription,
+            );
 
             // Update the modal's content
             const modalImage = serviceModal.querySelector("#modalImage");
             const modalDescription =
                 serviceModal.querySelector("#modalDescription");
 
-            // Check if elements exist before updating
+            // Update image
             if (modalImage) {
-                modalImage.src = imageUrl;
+                modalImage.src = imageUrl || ""; // Use the URL or fallback to empty
             }
+
+            // Update description (with safety check)
             if (modalDescription) {
+                let description = "";
+                // Only decode if the description string is not empty
+                if (encodedDescription) {
+                    try {
+                        description = atob(encodedDescription);
+                    } catch (e) {
+                        console.error(
+                            "Failed to decode base64 description:",
+                            e,
+                        );
+                        description =
+                            "There was an error displaying this content.";
+                    }
+                }
                 modalDescription.innerHTML = description;
             }
         });
