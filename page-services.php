@@ -149,4 +149,61 @@ get_header(); ?>
     </div>
 </section>
 
+<section id="services" class="cards pt-30 pb-60">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h1
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    data-aos-delay="0"
+                >
+                    Our <span>Services</span>
+                </h1>
+            </div>
+        </div>
+        <?php if (have_rows("services")): ?>
+        <div class="row">
+            <?php
+            $delay_count = 0;
+            while (have_rows("services")):
+
+                the_row();
+                $delay_count += 100;
+                $icon = get_sub_field("icon");
+                $name = get_sub_field("name");
+                $text = get_sub_field("text");
+                ?>
+            <div
+                class="col-lg-3 mb-4 mb-lg-0 text-center"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="<?php echo $delay_count; ?>"
+            >
+                <div class="card">
+                    <a href="<?php echo esc_url(get_permalink(39)); ?>">
+                        <img
+                            src="<?php echo esc_url($icon); ?>"
+                            class="card-img-top mb-3"
+                            alt="<?php echo esc_attr($name); ?>"
+                        />
+                    </a>
+                    <div class="card-body">
+                        <a href="javascript:void(0);">
+                            <h4 class="card-title mb-3"><?php echo $name; ?></h4>
+                        </a>
+                        <p class="card-text my-4">
+                            <?php echo $text; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <?php
+            endwhile;
+            ?>
+        </div>
+        <?php endif; ?>
+    </div>
+</section>
+
 <?php get_footer(); ?>
