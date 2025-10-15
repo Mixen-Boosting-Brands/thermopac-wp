@@ -1,71 +1,94 @@
 <?php get_header(); ?>
 
-	<main role="main" aria-label="Content">
-	<!-- section -->
-	<section>
+<?php if (have_posts()):
+    while (have_posts()):
+        the_post(); ?>
 
-	<?php if ( have_posts() ) : while (have_posts() ) : the_post(); ?>
+<section id="header-inner" class="pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Slider main container -->
+                <div class="swiper-header rounded">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <?php
+                        $background_image_url = get_the_post_thumbnail_url(
+                            get_the_ID(),
+                            "full",
+                        );
+                        if (!$background_image_url) {
+                            $background_image_url =
+                                get_template_directory_uri() .
+                                "/assets/images/slide-1.png";
+                        }
+                        ?>
+                        <div
+                            class="swiper-slide"
+                            style="
+                                background: url('<?php echo esc_url(
+                                    $background_image_url,
+                                ); ?>')
+                                    no-repeat;
+                            "
+                        >
+                            <div class="overlay"></div>
+                            <h1><?php the_title(); ?></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<section class="post py-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <?php
+                $categories = get_the_category();
+                if (!empty($categories)): ?>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="category" href="<?php echo esc_url(
+                            get_category_link($categories[0]->term_id),
+                        ); ?>">
+                            <?php echo esc_html($categories[0]->name); ?>
+                        </a>
+                    </li>
+                </ul>
+                <?php endif;
+                ?>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail() ) : // Check if Thumbnail exists. ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post. ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+                <h1><?php the_title(); ?></h1>
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
+                <?php the_content(); ?>
 
-			<!-- post details -->
-			<span class="date">
-				<time datetime="<?php the_time( 'Y-m-d' ); ?> <?php the_time( 'H:i' ); ?>">
-					<?php the_date(); ?> <?php the_time(); ?>
-				</time>
-			</span>
-			<span class="author"><?php esc_html_e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if ( comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' ) ); ?></span>
-			<!-- /post details -->
+                <?php
+                $tags = get_the_tags();
+                if ($tags): ?>
+                <ul class="list-inline">
+                    <?php foreach ($tags as $tag): ?>
+                    <li class="list-inline-item">
+                        <a class="badge tag" href="<?php echo esc_url(
+                            get_tag_link($tag->term_id),
+                        ); ?>">
+                            <?php echo esc_html($tag->name); ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif;
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
 
-			<?php the_content(); // Dynamic Content. ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>' ); // Separated by commas with a line break at the end. ?>
-
-			<p><?php esc_html_e( 'Categorised in: ', 'html5blank' ); the_category( ', ' ); // Separated by commas. ?></p>
-
-			<p><?php esc_html_e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available. ?>
-
-			<?php comments_template(); ?>
-
-		</article>
-		<!-- /article -->
-
-	<?php endwhile; ?>
-
-	<?php else : ?>
-
-		<!-- article -->
-		<article>
-
-			<h1><?php esc_html_e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
-
-		</article>
-		<!-- /article -->
-
-	<?php endif; ?>
-
-	</section>
-	<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+<?php
+    endwhile;
+endif; ?>
 
 <?php get_footer(); ?>
