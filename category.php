@@ -38,9 +38,10 @@
         </div>
 
         <div class="row">
-            <div class="col">
-                <?php // Paginación
-                the_posts_pagination([
+            <div class="col text-center">
+                <?php // Pagination
+
+the_posts_pagination([
                     "mid_size" => 2,
                     "prev_text" => __("&laquo; Previous", "textdomain"),
                     "next_text" => __("Next &raquo;", "textdomain"),
