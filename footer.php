@@ -272,14 +272,22 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="search-container">
-                    <input
-                        type="text"
-                        id="search-input"
-                        class="search-input"
-                        placeholder="Search..."
-                        autocomplete="off"
-                    />
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <form role="search" method="get" class="search-form" action="<?php echo esc_url(
+                        home_url("/"),
+                    ); ?>">
+                        <input
+                            type="search"
+                            id="search-input"
+                            class="search-input"
+                            placeholder="Search..."
+                            value="<?php echo get_search_query(); ?>"
+                            name="s"
+                            autocomplete="off"
+                        />
+                        <button type="submit" class="search-submit">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
