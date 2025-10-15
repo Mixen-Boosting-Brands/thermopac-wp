@@ -54,7 +54,7 @@ get_header(); ?>
                     ?>
                     <?php
                     $about_us_text = get_field("about_us_text");
-                    if ($inferior_text): ?>
+                    if ($about_us_text): ?>
                     <p
                         data-aos="fade-up"
                         data-aos-duration="1500"
@@ -70,6 +70,8 @@ get_header(); ?>
                         data-aos-delay="300"
                         >Learn more</a
                     >
+                    <?php endif;
+                    ?>
                 </div>
             </div>
             <div class="col-lg-6 my-auto text-center">
@@ -103,7 +105,9 @@ get_header(); ?>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <?php
-                                $our_services_headline = get_field("our_services_headline");
+                                $our_services_headline = get_field(
+                                    "our_services_headline",
+                                );
                                 if ($our_services_headline): ?>
                                 <h1
                                     data-aos="fade-up"
@@ -117,7 +121,9 @@ get_header(); ?>
                             </div>
                             <div class="col-12 col-md-6">
                                 <?php
-                                $our_services_text = get_field("our_services_text");
+                                $our_services_text = get_field(
+                                    "our_services_text",
+                                );
                                 if ($inferior_text): ?>
                                 <p
                                     data-aos="fade-up"
@@ -528,6 +534,8 @@ get_header(); ?>
 <?php get_footer(); ?>
 ?>
 ?>
+ ?>
+ ?>
  ?>
  ?>
  ?>
