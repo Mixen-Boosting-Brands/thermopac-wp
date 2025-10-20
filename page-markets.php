@@ -149,7 +149,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section id="services" class="cards pt-30 pb-60">
+<section id="markets" class="cards pt-30 pb-60">
     <div class="container">
         <div class="row mb-4">
             <div class="col text-center">
@@ -158,15 +158,15 @@ get_header(); ?>
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
-                    Our <span>Services</span>
+                    Our <span>Markets</span>
                 </h1>
             </div>
         </div>
-        <?php if (have_rows("services")): ?>
+        <?php if (have_rows("markets")): ?>
         <div class="row">
             <?php
             $delay_count = 0;
-            while (have_rows("services")):
+            while (have_rows("markets")):
 
                 the_row();
                 $delay_count += 100;
