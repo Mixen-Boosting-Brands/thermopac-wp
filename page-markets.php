@@ -43,6 +43,8 @@ get_header(); ?>
     </div>
 </section>
 
+<?php
+/*
 <section class="pt-60 pb-30">
     <div class="container">
         <div class="container">
@@ -131,8 +133,10 @@ get_header(); ?>
         </div>
     </div>
 </section>
+*/
+?>
 
-<section
+<!-- section
     class="video py-30"
     data-aos="fade-up"
     data-aos-duration="1500"
@@ -147,7 +151,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-</section>
+</section -->
 
 <section id="markets" class="cards pt-30 pb-60">
     <div class="container">
