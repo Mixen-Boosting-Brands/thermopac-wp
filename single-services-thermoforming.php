@@ -264,6 +264,46 @@
                 </div>
             </div>
 
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h1>Quality</h1>
+                    <?php
+                    $quiality_headline = get_field("quiality_headline");
+                    if ($quiality_headline): ?>
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="0"
+                    >
+                        <?php echo $quiality_headline; ?>
+                    </h1>
+                    <?php endif;
+                    ?>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <?php while (have_rows("quality_images")):
+                    the_row(); ?>
+                    <?php $image_url = get_sub_field("image"); ?>
+                    <?php if ($image_url): ?>
+                    <!-- Slide -->
+                    <div class="col-6 col-lg-3 text-center">
+                        <img
+                            src="<?php echo esc_url($image_url); ?>"
+                            alt=""
+                            class="img-fluid mb-3 mb-lg-0"
+                            loading="lazy"
+                        />
+                    </div>
+                    <?php endif; ?>
+                <?php
+                endwhile; ?>
+            </div>
+
+
+
+
+
 
 
             <div class="row mb-4">
