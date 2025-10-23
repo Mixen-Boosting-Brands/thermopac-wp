@@ -117,9 +117,7 @@
                                         class="img-fluid"
                                         loading="lazy"
                                     />
-                                    <h1><?php echo esc_url(
-                                        $product_name,
-                                    ); ?></h1>
+                                    <h1><?php echo $product_name; ?></h1>
                                 </div>
                             </div>
                             <?php endif; ?>
