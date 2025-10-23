@@ -178,7 +178,7 @@
                         <img
                             src="<?php echo esc_url($image_url); ?>"
                             alt=""
-                            class="img-fluid"
+                            class="img-fluid mb-3"
                             loading="lazy"
                         />
                     </div>
