@@ -73,6 +73,7 @@
                     ?>
                 </div>
             </div>
+
             <div class="row mb-4">
                 <div class="col text-center">
                     <h1>Our Products</h1>
@@ -151,6 +152,7 @@
                     ?>
                 </div>
             </div>
+
             <div class="row mb-4">
                 <div class="col text-center">
                     <h1>Materials</h1>
@@ -187,7 +189,80 @@
                 endwhile; ?>
             </div>
 
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h1>Secondary Operations</h1>
+                    <?php
+                    $secondary_operations_headline = get_field(
+                        "secondary_operations_headline",
+                    );
+                    if ($secondary_operations_headline): ?>
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="0"
+                    >
+                        <?php echo $secondary_operations_headline; ?>
+                    </h1>
+                    <?php endif;
+                    ?>
+                </div>
+            </div>
+            <?php if (have_rows("secondary_operations_images")): ?>
+            <div class="row mb-5">
+                <!-- Slider main container -->
+                <div
+                    class="swiper-inner"
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    data-aos-delay="100"
+                >
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <?php while (have_rows("secondary_operations_images")):
+                            the_row(); ?>
+                            <?php $image_url = get_sub_field("image"); ?>
+                            <?php if ($image_url): ?>
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img
+                                        src="<?php echo esc_url($image_url); ?>"
+                                        alt=""
+                                        class="img-fluid"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                        <?php
+                        endwhile; ?>
+                    </div>
 
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <?php
+                    $secondary_operations_inferior_text = get_field(
+                        "secondary_operations_inferior_text",
+                    );
+                    if ($secondary_operations_inferior_text): ?>
+                    <p
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="100"
+                    >
+                        <?php echo $secondary_operations_inferior_text; ?>
+                    </p>
+                    <?php endif;
+                    ?>
+                </div>
+            </div>
 
 
 
