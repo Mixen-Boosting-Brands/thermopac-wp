@@ -73,6 +73,23 @@
                     ?>
                 </div>
             </div>
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h1>Our Products</h1>
+                    <?php
+                    $our_products_headline = get_field("our_products_headline");
+                    if ($superior_headline): ?>
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="0"
+                    >
+                        <?php echo $our_products_headline; ?>
+                    </h1>
+                    <?php endif;
+                    ?>
+                </div>
+            </div>
             <?php if (have_rows("images")): ?>
             <div class="row mb-5">
                 <!-- Slider main container -->
