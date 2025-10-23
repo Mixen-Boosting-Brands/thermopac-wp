@@ -117,7 +117,9 @@
                                         class="img-fluid"
                                         loading="lazy"
                                     />
-                                    <h1><?php echo $product_name; ?></h1>
+                                    <div class="container-product-name">
+                                        <h1><?php echo $product_name; ?></h1>
+                                    </div>
                                 </div>
                             </div>
                             <?php endif; ?>
