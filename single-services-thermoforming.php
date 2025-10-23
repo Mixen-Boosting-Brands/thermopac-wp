@@ -103,7 +103,10 @@
                     <div class="swiper-wrapper">
                         <?php while (have_rows("our_products_images")):
                             the_row(); ?>
-                            <?php $image_url = get_sub_field("image"); ?>
+                            <?php
+                            $image_url = get_sub_field("image");
+                            $product_name = get_sub_field("product_name");
+                            ?>
                             <?php if ($image_url): ?>
                             <!-- Slide -->
                             <div class="swiper-slide">
@@ -114,6 +117,9 @@
                                         class="img-fluid"
                                         loading="lazy"
                                     />
+                                    <h1><?php echo esc_url(
+                                        $product_name,
+                                    ); ?></h1>
                                 </div>
                             </div>
                             <?php endif; ?>
