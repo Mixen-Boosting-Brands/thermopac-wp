@@ -90,7 +90,7 @@
                     ?>
                 </div>
             </div>
-            <?php if (have_rows("images")): ?>
+            <?php if (have_rows("our_products_images")): ?>
             <div class="row mb-5">
                 <!-- Slider main container -->
                 <div
@@ -101,7 +101,7 @@
                 >
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <?php while (have_rows("images")):
+                        <?php while (have_rows("our_products_images")):
                             the_row(); ?>
                             <?php $image_url = get_sub_field("image"); ?>
                             <?php if ($image_url): ?>
