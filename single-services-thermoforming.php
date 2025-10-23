@@ -153,6 +153,45 @@
             </div>
             <div class="row mb-4">
                 <div class="col text-center">
+                    <h1>Materials</h1>
+                    <?php
+                    $materials_headline = get_field("materials_headline");
+                    if ($materials_headline): ?>
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="0"
+                    >
+                        <?php echo $materials_headline; ?>
+                    </h1>
+                    <?php endif;
+                    ?>
+                </div>
+
+                <?php while (have_rows("materials_images")):
+                    the_row(); ?>
+                    <?php $image_url = get_sub_field("image"); ?>
+                    <?php if ($image_url): ?>
+                    <!-- Slide -->
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <img
+                            src="<?php echo esc_url($image_url); ?>"
+                            alt=""
+                            class="img-fluid"
+                            loading="lazy"
+                        />
+                    </div>
+                    <?php endif; ?>
+                <?php
+                endwhile; ?>
+            </div>
+
+
+
+
+
+            <div class="row mb-4">
+                <div class="col text-center">
                     <?php
                     $inferior_headline = get_field("inferior_headline");
                     if ($inferior_headline): ?>
