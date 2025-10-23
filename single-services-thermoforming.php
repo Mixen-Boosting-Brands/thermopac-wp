@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col-12 text-center">
+                <div class="col text-center">
                     <h1>Materials</h1>
                     <?php
                     $materials_headline = get_field("materials_headline");
@@ -167,7 +167,8 @@
                     <?php endif;
                     ?>
                 </div>
-
+            </div>
+            <div class="row mb-4">
                 <?php while (have_rows("materials_images")):
                     the_row(); ?>
                     <?php $image_url = get_sub_field("image"); ?>
