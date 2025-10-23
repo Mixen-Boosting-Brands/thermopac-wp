@@ -136,6 +136,24 @@
             <div class="row mb-4">
                 <div class="col text-center">
                     <?php
+                    $our_products_inferior_text = get_field(
+                        "our_products_inferior_text",
+                    );
+                    if ($our_products_inferior_text): ?>
+                    <p
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="100"
+                    >
+                        <?php echo $our_products_inferior_text; ?>
+                    </p>
+                    <?php endif;
+                    ?>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <?php
                     $inferior_headline = get_field("inferior_headline");
                     if ($inferior_headline): ?>
                     <h1
