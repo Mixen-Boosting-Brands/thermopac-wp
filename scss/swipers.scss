@@ -376,6 +376,7 @@
         }
 
         h1 {
+            color: $white;
             position: absolute;
             @include absolute-center-x;
             @include absolute-center-y;
