@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col text-center">
+                <div class="col-12 text-center">
                     <h1>Materials</h1>
                     <?php
                     $materials_headline = get_field("materials_headline");
