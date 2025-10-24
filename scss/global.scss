@@ -353,6 +353,7 @@ header {
         .card-text {
             color: $main-text;
             @include font-size(1.1rem);
+            display: none;
         }
 
         &:hover {
