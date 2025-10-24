@@ -43,8 +43,6 @@ get_header(); ?>
     </div>
 </section>
 
-<?php
-/*
 <section class="pt-60 pb-30">
     <div class="container">
         <div class="container">
@@ -133,8 +131,6 @@ get_header(); ?>
         </div>
     </div>
 </section>
-*/
-?>
 
 <!-- section
     class="video py-30"
