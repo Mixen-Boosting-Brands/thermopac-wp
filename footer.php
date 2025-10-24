@@ -301,7 +301,7 @@
                     </div>
                     <div class="modal-body">
                         <img src="" id="modalImage" class="img-fluid mb-4" alt="Service Image">
-                        <h5 class="modal-title" id="serviceModalLabel"></h5>
+                        <h2 class="modal-title" id="serviceModalLabel"></h2>
                         <div id="modalDescription"></div>
                     </div>
                 </div>
