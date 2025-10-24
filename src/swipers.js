@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         direction: "horizontal",
         allowTouchMove: true,
         spaceBetween: 0,
-        loop: true,
+        loop: false,
         grabCursor: true,
         keyboard: {
             enabled: false,
