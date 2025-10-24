@@ -211,9 +211,9 @@ get_header(); ?>
                         <a href="<?php echo $link_href; ?>" <?php echo $link_attributes; ?>>
                             <h4 class="card-title mb-3"><?php echo $name; ?></h4>
                         </a>
-                        <p class="card-text my-4">
-                            <?php echo $text; ?>
-                        </p>
+                        <!-- p class="card-text my-4">
+                            <php echo $text; >
+                        </p -->
                     </div>
                 </div>
             </div>
