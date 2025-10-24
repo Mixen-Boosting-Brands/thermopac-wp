@@ -6,6 +6,10 @@
     border-radius: 16px;
     color: $white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+    .btn-close {
+        filter: brightness(0) invert(1);
+    }
 }
 
 .modal-header {
