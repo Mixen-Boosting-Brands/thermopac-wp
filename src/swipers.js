@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // init Swiper:
     const swiperHeader = new Swiper(".swiper-header", {
         // configure Swiper to use modules
-        modules: [Navigation],
+        // modules: [Navigation],
         watchOverflow: true,
 
         // Navigation arrows
+        /*
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             init: updateNavigationButtons,
             resize: updateNavigationButtons,
         },
+        */
     });
 
     // init Swiper:
