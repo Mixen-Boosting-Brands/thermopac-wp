@@ -343,6 +343,7 @@ header {
         // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         padding: 30px 30px 10px;
         transform: scale(1);
+        width: 100%;
         @include transition(ease, 0.3s);
 
         .card-img-top {
