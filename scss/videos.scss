@@ -1,0 +1,121 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    h1,
+    h2,
+    h3 {
+        color: $white;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        position: relative;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            @include absolute-center;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            @include transition(all, 0.6s);
+        }
+
+        &:before {
+            width: 20vw;
+            height: 20vw;
+            min-width: 180px;
+            min-height: 180px;
+            max-width: 300px;
+            max-height: 300px;
+            background-color: rgba(22, 35, 64, 0.8);
+            z-index: -1;
+        }
+
+        &:before {
+            animation: scaleUpCircle 0.8s ease-out forwards;
+        }
+
+        &:after {
+            width: 24vw;
+            height: 24vw;
+            min-width: 220px;
+            min-height: 220px;
+            max-width: 360px;
+            max-height: 360px;
+            background-color: rgba(22, 35, 64, 0.3);
+            z-index: -2;
+        }
+
+        &:after {
+            animation: scaleUpCircle 0.8s ease-out 0.2s forwards;
+        }
+
+        // Mobile adjustments
+        @media (max-width: 575px) {
+            &:before {
+                width: 150px;
+                height: 150px;
+            }
+
+            &:after {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        // Tablet adjustments
+        @media (min-width: 576px) and (max-width: 991px) {
+            &:before {
+                width: 200px;
+                height: 200px;
+            }
+
+            &:after {
+                width: 240px;
+                height: 240px;
+            }
+        }
+    }
+
+    .video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover; // asegura que cubra el div
+        z-index: 1;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(22, 35, 64, 0.5);
+        z-index: 2;
+    }
+
+    .video-content {
+        position: relative;
+        z-index: 2; // encima del video
+        color: white;
+        text-align: center;
+        padding: 2rem;
+
+        h1,
+        p {
+            margin: 0.5rem 0;
+        }
+    }
+}
