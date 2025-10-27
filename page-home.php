@@ -160,13 +160,31 @@ get_header(); ?>
                                             get_the_ID(),
                                             "full",
                                         );
+
+                                        // --- START: MODIFICATION ---
+                                        // Determine the correct URL based on the post title.
+                                        $service_link = "";
+                                        if (
+                                            get_the_title() === "Thermoforming"
+                                        ) {
+                                            // If it's "Thermoforming", link to its own permalink.
+                                            $service_link = get_permalink();
+                                        } else {
+                                            // For all other services, link to the main services page anchor.
+                                            $service_link =
+                                                get_permalink(35) . "#services";
+                                        }
+
+                                        // --- END: MODIFICATION ---
                                         ?>
                                     <div class="swiper-slide rounded" style="background: url('<?php echo esc_url(
                                         $featured_img_url,
                                     ); ?>') no-repeat;">
                                         <a href="<?php echo esc_url(
-                                            get_permalink(35),
-                                        ); ?>#services"></a>
+                                            $service_link,
+                                        );
+                                        // Use the new variable here
+                                        ?>"></a>
                                         <div class="overlay"></div>
                                         <div class="caption">
                                             <h1><?php the_title(); ?></h1>
