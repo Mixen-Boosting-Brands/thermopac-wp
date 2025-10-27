@@ -8,6 +8,9 @@ get_header(); ?>
     <div class="container">
         <div class="row">
             <div class="col">
+            <?php if (have_rows("slider")): ?>
+                <?php while (have_rows("slider")):
+                    the_row(); ?>
                 <div class="video-container rounded">
                     <video class="video-bg" autoplay muted loop playsinline>
                         <source src="<?php echo esc_url(
@@ -18,6 +21,9 @@ get_header(); ?>
                       <div class="overlay"></div>
                       <h1><?php echo get_sub_field("title"); ?></h1>
                 </div>
+                <?php
+                endwhile; ?>
+            <?php endif; ?>
             </div>
         </div>
     </div>
