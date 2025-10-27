@@ -20,6 +20,31 @@
     </div>
 </section>
 
+<section class="py-30">
+    <div class="container">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="0"
+                    >
+                        At Thermopac sustainability isn’t just part of our process — it shapes everything we design, manufacture, and deliver. <span>Through innovation in thermoforming and material efficiency</span>, we’re committed to creating packaging solutions that perform beautifully while protecting the planet.
+                    </h1>
+                    <p
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="100"
+                    >
+                        From tooling to forming, our operations are engineered for minimal waste and maximum efficiency. We continuously invest in precision equipment and process optimization to reduce energy consumption, material usage, and CO₂ emissions — without compromising quality or performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="posts py-60">
     <div class="container">
         <div class="row">
