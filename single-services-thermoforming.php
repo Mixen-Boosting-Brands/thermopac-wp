@@ -4,36 +4,22 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <!-- Slider main container -->
-                <div class="swiper-header rounded">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slide -->
-                        <?php
-                        $background_image_url = get_the_post_thumbnail_url(
-                            get_the_ID(),
-                            "full",
-                        );
-                        if (!$background_image_url) {
-                            $background_image_url =
-                                get_template_directory_uri() .
-                                "/assets/images/slide-1.png";
-                        }
-                        ?>
-                        <div
-                            class="swiper-slide"
-                            style="
-                                background: url('<?php echo esc_url(
-                                    $background_image_url,
-                                ); ?>')
-                                    no-repeat;
-                            "
-                        >
-                            <div class="overlay"></div>
-                            <h1><?php the_title(); ?></h1>
-                        </div>
-                    </div>
+            <?php if (have_rows("slider")): ?>
+                <?php while (have_rows("slider")):
+                    the_row(); ?>
+                <div class="video-container rounded">
+                    <video class="video-bg" autoplay muted loop playsinline>
+                        <source src="<?php echo esc_url(
+                            get_sub_field("video"),
+                        ); ?>" type="video/mp4">
+                        Tu navegador no soporta video HTML5.
+                      </video>
+                      <div class="overlay"></div>
+                      <h1><?php echo get_sub_field("title"); ?></h1>
                 </div>
+                <?php
+                endwhile; ?>
+            <?php endif; ?>
             </div>
         </div>
     </div>
