@@ -4,15 +4,29 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="video-container">
-                    <video class="video-bg" autoplay muted loop playsinline>
-                        <source src="<?php echo esc_url(
-                            get_template_directory_uri(),
-                        ); ?>/assets/videos/video-banner-480.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                      </video>
-                      <div class="overlay"></div>
-                      <h1><?php echo get_sub_field("title"); ?></h1>
+                <!-- Slider main container -->
+                <div class="swiper-header rounded">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <?php if (have_rows("slider")): ?>
+                            <?php while (have_rows("slider")):
+                                the_row(); ?>
+                                <div class="swiper-slide" style="background: url('<?php echo esc_url(
+                                    get_sub_field("image"),
+                                ); ?>') no-repeat;">
+                                    <div class="overlay"></div>
+                                    <h1><?php echo get_sub_field(
+                                        "title",
+                                    ); ?></h1>
+                                </div>
+                            <?php
+                            endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
