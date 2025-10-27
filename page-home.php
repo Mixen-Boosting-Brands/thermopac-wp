@@ -12,7 +12,7 @@ get_header(); ?>
                     <video class="video-bg" autoplay muted loop playsinline>
                         <source src="<?php echo esc_url(
                             get_template_directory_uri(),
-                        ); ?>/assets/video/video-banner-480.mp4" type="video/mp4">
+                        ); ?>/assets/videos/video-banner-480.mp4" type="video/mp4">
                         Tu navegador no soporta video HTML5.
                       </video>
                       <div class="overlay"></div>
