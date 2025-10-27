@@ -227,9 +227,12 @@
 ): ?>class="active"<?php endif; ?>>Markets</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="<?php if (!is_home()):
-                                        echo esc_url(home_url());
-                                    endif; ?>#news-and-events">News and Events</a>
+                                    <a href="<?php echo esc_url(
+                                        home_url(),
+                                    ); ?>/news" <?php if (
+    is_archive() ||
+    is_home()
+): ?>class="active"<?php endif; ?>>News and Events</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="#contact">Contact Us</a>
