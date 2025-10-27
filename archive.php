@@ -8,10 +8,10 @@
                     <div class="swiper-wrapper">
                         <div
                             class="swiper-slide"
-                            style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/slide-1.png') no-repeat;"
+                            style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/banner-blog.png') no-repeat;"
                         >
                             <div class="overlay"></div>
-                            <h1><?php the_archive_title(); ?></h1>
+                            <h1>Sustainability and News</h1>
                         </div>
                     </div>
                 </div>
