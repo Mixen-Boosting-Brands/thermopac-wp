@@ -416,10 +416,6 @@
         --swiper-navigation-color: #{$dark}; // Or #333
         --swiper-theme-color: #{$dark}; // Or #333
 
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
         &::after {
             font-size: 16px;
             font-weight: 700;
