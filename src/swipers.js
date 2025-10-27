@@ -70,8 +70,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // NOTE: The swiperServices initialization remains here in case it's used on other pages.
     const swiperServices = new Swiper(".swiper-services", {
-        // ... (your existing swiperServices config)
+        // configure Swiper to use modules
+        modules: [
+            Navigation,
+            Pagination,
+            Autoplay,
+            Mousewheel,
+            Keyboard,
+            Scrollbar,
+        ],
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        direction: "horizontal",
+        allowTouchMove: true,
+        spaceBetween: 0,
+        loop: false,
+        grabCursor: true,
+        keyboard: {
+            enabled: false,
+        },
+        mousewheel: false,
+        slidesPerView: 1,
+        watchOverflow: true,
+        watchSlidesProgress: true,
+
+        breakpoints: {
+            576: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+                centeredSlides: false,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                centeredSlides: false,
+            },
+            992: {
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+                centeredSlides: true,
+            },
+        },
+
+        on: {
+            init: function () {
+                updateNavigationButtons(this);
+                // Force update to ensure proper rendering
+                setTimeout(() => {
+                    this.updateSlides();
+                    this.updateProgress();
+                    this.updateSlidesClasses();
+                }, 100);
+
+                // Add active class logic for centered slides
+                if (window.innerWidth >= 992) {
+                    setTimeout(() => {
+                        updateCenteredSlide(this);
+                    }, 200);
+                }
+            },
+            slideChangeTransitionEnd: function () {
+                if (window.innerWidth >= 992) {
+                    updateCenteredSlide(this);
+                }
+            },
+            resize: function () {
+                updateNavigationButtons(this);
+                // Force update on resize
+                setTimeout(() => {
+                    this.updateSlides();
+                    this.updateProgress();
+                    this.updateSlidesClasses();
+                }, 100);
+
+                if (window.innerWidth >= 992) {
+                    updateCenteredSlide(this);
+                } else {
+                    this.slides.forEach((slide) => {
+                        slide.classList.remove("active");
+                    });
+                }
+            },
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
     });
+
+    // Function to handle centered slide logic
+    function updateCenteredSlide(swiper) {
+        swiper.slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+
+        // Find the currently active/centered slide
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        if (activeSlide) {
+            activeSlide.classList.add("active");
+        }
+    }
 
     // Function to handle centered slide logic
     function updateCenteredSlide(swiper) {
