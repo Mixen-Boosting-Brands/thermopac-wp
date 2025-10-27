@@ -3,7 +3,7 @@ import Swiper from "swiper";
 import {
     Navigation,
     Pagination,
-    Autoplay,
+    Autoplay, // Make sure Autoplay is imported
     Thumbs,
     EffectFade,
     Scrollbar,
@@ -105,11 +105,20 @@ document.addEventListener("DOMContentLoaded", function () {
         // This ensures Swiper can correctly calculate its dimensions.
         serviceModal.addEventListener("shown.bs.modal", function () {
             modalSwiper = new Swiper(".modal-swiper", {
+                // 1. Tell Swiper to use the modules you imported
+                modules: [Navigation, Autoplay],
+
+                // 2. Add the autoplay configuration
+                autoplay: {
+                    delay: 3000, // 3 seconds between slides
+                    disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+                },
+
                 // Optional parameters
                 loop: true,
                 navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+                    nextEl: ".modal-swiper .swiper-button-next", // Be more specific for safety
+                    prevEl: ".modal-swiper .swiper-button-prev", // Be more specific for safety
                 },
             });
         });

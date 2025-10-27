@@ -392,3 +392,55 @@
         }
     }
 }
+
+.modal-swiper {
+    position: relative; // Needed for absolute positioning of arrows
+    overflow: hidden;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: absolute;
+        @include absolute-center-y;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        // Use a dark color for the border to be visible on a white background
+        border: 1px solid $dark; // Assuming you have a $dark variable, otherwise use e.g., #333
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        // Override Swiper's default CSS custom properties with a dark color
+        --swiper-navigation-color: #{$dark}; // Or #333
+        --swiper-theme-color: #{$dark}; // Or #333
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &::after {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+
+    .swiper-button-prev {
+        // Adjust position to be inside the modal nicely
+        left: 15px !important;
+    }
+
+    .swiper-button-next {
+        // Adjust position to be inside the modal nicely
+        right: 15px !important;
+    }
+
+    // Hide arrows when swiper is disabled
+    &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
