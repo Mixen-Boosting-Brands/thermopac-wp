@@ -16,7 +16,7 @@ get_header(); ?>
                         <source src="<?php echo esc_url(
                             get_sub_field("video"),
                         ); ?>" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
+                            Your browser doesn't support HTML5.
                       </video>
                       <div class="overlay"></div>
                       <h1><?php echo get_sub_field("title"); ?></h1>

@@ -12,7 +12,7 @@
                         <source src="<?php echo esc_url(
                             get_sub_field("video"),
                         ); ?>" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
+                        Your browser doesn't support HTML5.
                       </video>
                       <div class="overlay"></div>
                       <h1><?php echo get_sub_field("title"); ?></h1>
@@ -76,6 +76,7 @@
                 ?>
             </div>
         </div>
+
         <?php if (have_rows("our_products_images")): ?>
         <div class="row mb-5">
             <!-- Slider main container -->
@@ -88,25 +89,62 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <?php while (have_rows("our_products_images")):
-                        the_row(); ?>
-                        <?php
+
+                        the_row();
+
+                        // --- MODIFICATION START ---
+
+                        // Get fields for the VISIBLE SLIDE
                         $image_url = get_sub_field("image");
                         $product_name = get_sub_field("product_name");
+
+                        // Get fields for the MODAL
+                        $modal_images_repeater = get_sub_field("images");
+                        $modal_description = get_sub_field("description");
+
+                        // Prepare data for the modal's data attributes
+                        $modal_image_urls = [];
+                        if ($modal_images_repeater) {
+                            foreach ($modal_images_repeater as $img_data) {
+                                $modal_image_urls[] = $img_data["image"];
+                            }
+                        }
+                        $modal_images_json = json_encode($modal_image_urls);
+                        $encoded_description = base64_encode(
+                            $modal_description,
+                        );
+
+                        // Create the full attribute string for the trigger element
+                        $modal_attributes = sprintf(
+                            'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-images=\'%s\' data-bs-description="%s"',
+                            esc_attr($product_name),
+                            esc_attr($modal_images_json),
+                            $encoded_description,
+                        );
+
+                        // --- MODIFICATION END ---
                         ?>
                         <?php if ($image_url): ?>
                         <!-- Slide -->
                         <div class="swiper-slide">
-                            <div class="card">
-                                <img
-                                    src="<?php echo esc_url($image_url); ?>"
-                                    alt=""
-                                    class="img-fluid"
-                                    loading="lazy"
-                                />
-                                <div class="container-product-name">
-                                    <h1><?php echo $product_name; ?></h1>
+                            <!-- The card is now wrapped in an <a> tag which will trigger the modal -->
+                            <a href="javascript:void(0);" <?php echo $modal_attributes; ?>>
+                                <div class="card">
+                                    <img
+                                        src="<?php echo esc_url($image_url); ?>"
+                                        alt="<?php echo esc_attr(
+                                            $product_name,
+                                        ); ?>"
+                                        class="img-fluid"
+                                        loading="lazy"
+                                    />
+                                    <div class="container-product-name">
+                                        <h1><?php echo esc_html(
+                                            $product_name,
+                                        ); ?></h1>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <?php endif; ?>
                     <?php
@@ -156,22 +194,24 @@
             </div>
         </div>
         <div class="row mb-4">
-            <?php while (have_rows("materials_images")):
-                the_row(); ?>
-                <?php $image_url = get_sub_field("image"); ?>
-                <?php if ($image_url): ?>
-                <!-- Slide -->
-                <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <img
-                        src="<?php echo esc_url($image_url); ?>"
-                        alt=""
-                        class="img-fluid mb-3 mb-lg-0"
-                        loading="lazy"
-                    />
-                </div>
-                <?php endif; ?>
-            <?php
-            endwhile; ?>
+            <?php if (have_rows("materials_images")): ?>
+                <?php while (have_rows("materials_images")):
+                    the_row(); ?>
+                    <?php $image_url = get_sub_field("image"); ?>
+                    <?php if ($image_url): ?>
+                    <!-- Slide -->
+                    <div class="col-6 col-md-4 col-lg-2 text-center">
+                        <img
+                            src="<?php echo esc_url($image_url); ?>"
+                            alt=""
+                            class="img-fluid mb-3 mb-lg-0"
+                            loading="lazy"
+                        />
+                    </div>
+                    <?php endif; ?>
+                <?php
+                endwhile; ?>
+            <?php endif; ?>
         </div>
 
         <div class="row mb-4">
@@ -267,22 +307,24 @@
             </div>
         </div>
         <div class="row mb-4">
-            <?php while (have_rows("quality_images")):
-                the_row(); ?>
-                <?php $image_url = get_sub_field("image"); ?>
-                <?php if ($image_url): ?>
-                <!-- Slide -->
-                <div class="col-6 col-lg-3 text-center">
-                    <img
-                        src="<?php echo esc_url($image_url); ?>"
-                        alt=""
-                        class="img-fluid mb-3 mb-lg-0"
-                        loading="lazy"
-                    />
-                </div>
-                <?php endif; ?>
-            <?php
-            endwhile; ?>
+            <?php if (have_rows("quality_images")): ?>
+                <?php while (have_rows("quality_images")):
+                    the_row(); ?>
+                    <?php $image_url = get_sub_field("image"); ?>
+                    <?php if ($image_url): ?>
+                    <!-- Slide -->
+                    <div class="col-6 col-lg-3 text-center">
+                        <img
+                            src="<?php echo esc_url($image_url); ?>"
+                            alt=""
+                            class="img-fluid mb-3 mb-lg-0"
+                            loading="lazy"
+                        />
+                    </div>
+                    <?php endif; ?>
+                <?php
+                endwhile; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>
