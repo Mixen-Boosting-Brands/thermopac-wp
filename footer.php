@@ -300,7 +300,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="" id="modalImage" class="img-fluid mb-4" alt="Service Image">
+                        <!-- Slider main container -->
+                        <div class="swiper modal-swiper mb-4">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides will be injected here by JavaScript -->
+                            </div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
                         <h2 class="modal-title" id="serviceModalLabel"></h2>
                         <div id="modalDescription"></div>
                     </div>

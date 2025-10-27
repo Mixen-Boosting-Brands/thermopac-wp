@@ -126,23 +126,6 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- section
-    class="video py-30"
-    data-aos="fade-up"
-    data-aos-duration="1500"
-    data-aos-delay="0"
->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <div class="container-video">
-                    <p>Video</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section -->
-
 <section id="markets" class="cards pt-30 pb-60">
     <div class="container">
         <div class="row mb-4">
@@ -169,8 +152,23 @@ get_header(); ?>
                 $icon = get_sub_field("icon");
                 $name = get_sub_field("name");
                 $text = get_sub_field("text");
-                $modal_image = get_sub_field("image");
+                // $modal_image = get_sub_field("image"); // This is the old single image field, we no longer need it.
                 $modal_description = get_sub_field("description");
+
+                // --- MODIFICATION START ---
+                // Get the repeater field for images
+                $modal_images = get_sub_field("images");
+                $image_urls = [];
+                if ($modal_images) {
+                    foreach ($modal_images as $img) {
+                        // Assuming your repeater subfield is named 'image' and returns a URL
+                        $image_urls[] = $img["image"];
+                    }
+                }
+                // Convert the array of URLs to a JSON string.
+                // We use single quotes for the HTML attribute to safely contain the JSON's double quotes.
+                $modal_images_json = json_encode($image_urls);
+                // --- MODIFICATION END ---
 
                 // --- Conditional Logic ---
                 $is_thermoforming = $name === "Thermoforming";
@@ -179,12 +177,15 @@ get_header(); ?>
                     $link_attributes = ""; // No modal attributes needed
                 } else {
                     $link_href = "javascript:void(0);";
+                    // --- MODIFICATION START ---
+                    // Replaced data-bs-image with data-bs-images which now contains the JSON string
                     $link_attributes = sprintf(
-                        'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-image="%s" data-bs-description="%s"',
+                        'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-images=\'%s\' data-bs-description="%s"',
                         esc_attr($name),
-                        esc_url($modal_image),
+                        esc_attr($modal_images_json),
                         base64_encode($modal_description),
                     );
+                    // --- MODIFICATION END ---
                 }
                 ?>
             <div
