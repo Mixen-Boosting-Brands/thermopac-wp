@@ -132,21 +132,4 @@ get_header(); ?>
     </div>
 </section>
 
-<section
-    class="video py-30"
-    data-aos="fade-up"
-    data-aos-duration="1500"
-    data-aos-delay="0"
->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <div class="container-video">
-                    <p>Video</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <?php get_footer(); ?>
