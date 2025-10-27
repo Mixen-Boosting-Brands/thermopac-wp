@@ -165,7 +165,10 @@
                                 <li class="list-inline-item">
                                     <a href="<?php echo esc_url(
                                         home_url(),
-                                    ); ?>/news">News and Events</a>
+                                    ); ?>/news" <?php if (
+    is_archive() ||
+    is_home()
+): ?>class="active"<?php endif; ?>>News and Events</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="#contact">Contact Us</a>
