@@ -43,18 +43,38 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="pt-60 pb-30">
+<?php // Start the main 'service' repeater loop
+
+if (have_rows("service")): ?>
+    <?php while (have_rows("service")):
+        the_row(); ?>
+
+<section class="service py-30">
     <div class="container">
         <div class="container">
             <div class="row mb-4">
                 <div class="col text-center">
                     <?php
-                    $superior_headline = get_field("superior_headline");
-                    if ($superior_headline): ?>
+                    // Use get_sub_field() for the headline
+                    $service_name = get_sub_field("service_name");
+                    if ($service_name): ?>
                     <h1
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
+                    >
+                        <?php echo $service_name; ?>
+                    </h1>
+                    <?php endif;
+                    ?>
+                    <?php
+                    // Use get_sub_field() for the headline
+                    $superior_headline = get_sub_field("superior_headline");
+                    if ($superior_headline): ?>
+                    <h1
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                        data-aos-delay="100"
                     >
                         <?php echo $superior_headline; ?>
                     </h1>
@@ -62,14 +82,16 @@ get_header(); ?>
                     ?>
                 </div>
             </div>
-            <?php if (have_rows("images")): ?>
+            <?php // This nested repeater for 'images' works as intended
+
+        if (have_rows("images")): ?>
             <div class="row mb-5">
                 <!-- Slider main container -->
                 <div
                     class="swiper-inner"
                     data-aos="fade-up"
                     data-aos-duration="1500"
-                    data-aos-delay="100"
+                    data-aos-delay="200"
                 >
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
@@ -102,7 +124,8 @@ get_header(); ?>
             <div class="row mb-4">
                 <div class="col text-center">
                     <?php
-                    $inferior_headline = get_field("inferior_headline");
+                    // Use get_sub_field() for the headline
+                    $inferior_headline = get_sub_field("inferior_headline");
                     if ($inferior_headline): ?>
                     <h1
                         data-aos="fade-up"
@@ -115,7 +138,8 @@ get_header(); ?>
                     ?>
 
                     <?php
-                    $inferior_text = get_field("inferior_text");
+                    // Use get_sub_field() for the text
+                    $inferior_text = get_sub_field("inferior_text");
                     if ($inferior_text): ?>
                     <p
                         data-aos="fade-up"
@@ -132,97 +156,10 @@ get_header(); ?>
     </div>
 </section>
 
-<section
-    class="video py-30"
-    data-aos="fade-up"
-    data-aos-duration="1500"
-    data-aos-delay="0"
->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <div class="container-video">
-                    <p>Video</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="cards pt-30 pb-60">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h1
-                    data-aos="fade-up"
-                    data-aos-duration="1500"
-                    data-aos-delay="0"
-                >
-                    Our <span>Services</span>
-                </h1>
-            </div>
-        </div>
-        <?php if (have_rows("services")): ?>
-        <div class="row">
-            <?php
-            $delay_count = 0;
-            while (have_rows("services")):
-
-                the_row();
-                $delay_count += 100;
-
-                // Get all sub fields
-                $icon = get_sub_field("icon");
-                $name = get_sub_field("name");
-                $text = get_sub_field("text");
-                $modal_image = get_sub_field("image");
-                $modal_description = get_sub_field("description");
-
-                // --- Conditional Logic ---
-                $is_thermoforming = $name === "Thermoforming";
-                if ($is_thermoforming) {
-                    $link_href = esc_url(get_permalink(12));
-                    $link_attributes = ""; // No modal attributes needed
-                } else {
-                    $link_href = "javascript:void(0);";
-                    $link_attributes = sprintf(
-                        'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-image="%s" data-bs-description="%s"',
-                        esc_attr($name),
-                        esc_url($modal_image),
-                        base64_encode($modal_description),
-                    );
-                }
-                ?>
-            <div
-                class="col-lg-3 mb-4 mb-lg-0 text-center"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-                data-aos-delay="<?php echo $delay_count; ?>"
-            >
-                <div class="card">
-                    <a href="<?php echo $link_href; ?>" <?php echo $link_attributes; ?>>
-                        <img
-                            src="<?php echo esc_url($icon); ?>"
-                            class="card-img-top mb-3"
-                            alt="<?php echo esc_attr($name); ?>"
-                        />
-                    </a>
-                    <div class="card-body">
-                        <a href="<?php echo $link_href; ?>" <?php echo $link_attributes; ?>>
-                            <h4 class="card-title mb-3"><?php echo $name; ?></h4>
-                        </a>
-                        <p class="card-text my-4">
-                            <?php echo $text; ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <?php
-            endwhile;
-            ?>
-        </div>
-        <?php endif; ?>
-    </div>
-</section>
+    <?php
+    endwhile; ?>
+<?php endif;
+// End the main 'service' repeater loop
+?>
 
 <?php get_footer(); ?>
