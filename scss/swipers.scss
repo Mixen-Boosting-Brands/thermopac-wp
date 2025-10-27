@@ -410,8 +410,6 @@
         justify-content: center;
         background-color: transparent;
         // Use a dark color for the border to be visible on a white background
-        border: 1px solid $dark; // Assuming you have a $dark variable, otherwise use e.g., #333
-        border-radius: 50%;
         transition: all 0.3s ease;
 
         // Override Swiper's default CSS custom properties with a dark color
