@@ -97,17 +97,17 @@
                                 <li>
                                     <a href="<?php echo esc_url(
                                         get_permalink(35),
-                                    ); ?>#design-and-engineering">Design & Engineering</a>
+                                    ); ?>#design-engineering">Design & Engineering</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo esc_url(
                                         get_permalink(35),
-                                    ); ?>#tool-manufcturing">Tool Manufacturing</a>
+                                    ); ?>#tool-manufacturing">Tool Manufacturing</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo esc_url(
                                         get_permalink(35),
-                                    ); ?>#customer-service-and-logistics">Customer Service & Logistics</a>
+                                    ); ?>#customer-service-logistics">Customer Service & Logistics</a>
                                 </li>
                             </ul>
                         </li>
