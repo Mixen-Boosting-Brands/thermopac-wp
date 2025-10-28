@@ -117,3 +117,24 @@ document.addEventListener("keydown", (event) => {
         cerrarMenu();
     }
 });
+
+// Sub-menu functionality
+document.addEventListener("DOMContentLoaded", function () {
+    // Find all menu items that have a submenu
+    const submenuItems = document.querySelectorAll(".has-submenu > a");
+
+    submenuItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+            // Check if the screen is small (mobile/tablet view)
+            // Using 992px to match the SCSS breakpoint
+            if (window.innerWidth < 992) {
+                // Prevent the link from navigating to the URL on first tap
+                event.preventDefault();
+
+                // Toggle the .submenu-open class on the parent LI
+                const parentLi = this.parentElement;
+                parentLi.classList.toggle("submenu-open");
+            }
+        });
+    });
+});

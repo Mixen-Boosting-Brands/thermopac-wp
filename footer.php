@@ -132,7 +132,7 @@
                                             privacy.
                                             <br />
                                             We will never collect
-                                            informationabout you without your
+                                            information about you without your
                                             consent.
                                         </p>
                                     </div>

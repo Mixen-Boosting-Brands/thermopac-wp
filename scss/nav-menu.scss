@@ -68,6 +68,64 @@
             margin: 30px auto;
             text-align: center;
             @include font-size(1.4rem);
+
+            ul#navmenu {
+                > li {
+                    &.has-submenu {
+                        position: relative; // Needed for positioning if you ever use absolute dropdowns
+
+                        // Add a dropdown arrow indicator
+                        > a {
+                            &::after {
+                                content: " \25BC"; // Downward arrow character
+                                display: inline-block;
+                                font-size: 0.7em;
+                                margin-left: 5px;
+                                vertical-align: middle;
+                                transition: transform 0.3s ease;
+                            }
+                        }
+
+                        // The submenu container
+                        .submenu {
+                            list-style: none;
+                            padding-left: 20px; // Indent submenu items
+                            margin-top: 15px;
+                            text-align: center;
+
+                            // Core styles for hiding/showing with a transition
+                            max-height: 0;
+                            overflow: hidden;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition:
+                                max-height 0.4s ease-out,
+                                opacity 0.3s ease-out,
+                                visibility 0.4s;
+
+                            li {
+                                line-height: 2.1rem;
+                                a {
+                                    font-size: 1.2rem; // Slightly smaller font for submenu items
+                                    font-weight: 200;
+                                }
+                            }
+                        }
+
+                        // This class will be toggled by JavaScript for mobile view
+                        &.submenu-open {
+                            > a::after {
+                                transform: rotate(180deg); // Flip arrow
+                            }
+                            .submenu {
+                                max-height: 500px; // A large-enough value to show all items
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         #btn-contact {
@@ -123,6 +181,18 @@
 @include media-breakpoint-up(lg) {
     .menu {
         width: 50%;
+    }
+
+    // This targets the submenu on hover for screens 992px and wider
+    .menu nav ul#navmenu > li.has-submenu:hover {
+        > a::after {
+            transform: rotate(180deg); // Flip the arrow on hover
+        }
+        .submenu {
+            max-height: 500px; // Reveal the menu
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }
 

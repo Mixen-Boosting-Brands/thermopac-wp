@@ -84,30 +84,32 @@
                                 get_permalink(33),
                             ); ?>">About Us</a>
                         </li>
-                        <li>
+                        <li class="has-submenu">
                             <a href="<?php echo esc_url(
                                 get_permalink(35),
                             ); ?>">Services</a>
-                            <li>
-                                <a href="<?php echo esc_url(
-                                    get_permalink(12),
-                                ); ?>">Thermoforming</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo esc_url(
-                                    get_permalink(35),
-                                ); ?>#design-and-engineering">Design & Engineering</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo esc_url(
-                                    get_permalink(35),
-                                ); ?>#tool-manufcturing">Tool Manufacturing</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo esc_url(
-                                    get_permalink(35),
-                                ); ?>#customer-service-and-logistics">Customer Service & Logistics</a>
-                            </li>
+                            <ul class="submenu list-unstyled">
+                                <li>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(12),
+                                    ); ?>">Thermoforming</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(35),
+                                    ); ?>#design-and-engineering">Design & Engineering</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(35),
+                                    ); ?>#tool-manufcturing">Tool Manufacturing</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo esc_url(
+                                        get_permalink(35),
+                                    ); ?>#customer-service-and-logistics">Customer Service & Logistics</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo esc_url(
