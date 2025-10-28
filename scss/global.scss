@@ -337,7 +337,13 @@ header {
     }
 
     .container-services {
-        @include background("../images/bg-services.png", inherit, cover);
+        // @include background("../images/bg-services.png", inherit, cover);
+        background: #2f62ac;
+        background: linear-gradient(
+            90deg,
+            rgba(47, 98, 172, 1) 0%,
+            rgba(144, 195, 234, 1) 50%
+        );
     }
 }
 
