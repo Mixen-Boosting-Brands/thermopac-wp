@@ -65,13 +65,13 @@
                 <?php
                 $our_products_headline = get_field("our_products_headline");
                 if ($superior_headline): ?>
-                <h1
+                <h2
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
                     <?php echo $our_products_headline; ?>
-                </h1>
+                </h2>
                 <?php endif;
                 ?>
             </div>
@@ -179,13 +179,13 @@
                 <?php
                 $materials_headline = get_field("materials_headline");
                 if ($materials_headline): ?>
-                <h1
+                <h2
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
                     <?php echo $materials_headline; ?>
-                </h1>
+                </h2>
                 <?php endif;
                 ?>
             </div>
@@ -220,13 +220,13 @@
                     "secondary_operations_headline",
                 );
                 if ($secondary_operations_headline): ?>
-                <h1
+                <h2
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
                     <?php echo $secondary_operations_headline; ?>
-                </h1>
+                </h2>
                 <?php endif;
                 ?>
             </div>
@@ -295,13 +295,13 @@
                 <?php
                 $quiality_headline = get_field("quiality_headline");
                 if ($quiality_headline): ?>
-                <h1
+                <h2
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-aos-delay="0"
                 >
                     <?php echo $quiality_headline; ?>
-                </h1>
+                </h2>
                 <?php endif;
                 ?>
             </div>
