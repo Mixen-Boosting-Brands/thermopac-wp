@@ -88,6 +88,26 @@
                             <a href="<?php echo esc_url(
                                 get_permalink(35),
                             ); ?>">Services</a>
+                            <li>
+                                <a href="<?php echo esc_url(
+                                    get_permalink(12),
+                                ); ?>">Thermoforming</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo esc_url(
+                                    get_permalink(35),
+                                ); ?>#design-and-engineering">Design & Engineering</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo esc_url(
+                                    get_permalink(35),
+                                ); ?>#tool-manufcturing">Tool Manufacturing</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo esc_url(
+                                    get_permalink(35),
+                                ); ?>#customer-service-and-logistics">Customer Service & Logistics</a>
+                            </li>
                         </li>
                         <li>
                             <a href="<?php echo esc_url(
@@ -97,7 +117,7 @@
                         <li>
                             <a href="<?php echo esc_url(
                                 home_url(),
-                            ); ?>/news">News and Events</a>
+                            ); ?>/news">Sustainability and News</a>
                         </li>
                     </ul>
                 </nav>
@@ -113,7 +133,7 @@
         <header id="navbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-6 col-lg-2 my-auto">
+                    <div class="col-6 my-auto">
                         <a href="<?php echo esc_url(home_url()); ?>">
                             <img
                                 id="logo-navbar"
@@ -131,52 +151,7 @@
                             />
                         </a>
                     </div>
-                    <div class="col-lg-9 my-auto text-center d-none d-lg-block">
-                        <nav>
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        home_url(),
-                                    ); ?>" <?php if (
-    is_front_page()
-): ?>class="active"<?php endif; ?>>Home</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(33),
-                                    ); ?>" <?php if (
-    is_page(33)
-): ?>class="active"<?php endif; ?>>About Us</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(35),
-                                    ); ?>" <?php if (
-    is_page(35)
-): ?>class="active"<?php endif; ?>>Services</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(39),
-                                    ); ?>" <?php if (
-    is_page(39)
-): ?>class="active"<?php endif; ?>>Markets</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        home_url(),
-                                    ); ?>/news" <?php if (
-    is_archive() ||
-    is_home()
-): ?>class="active"<?php endif; ?>>News and Events</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#contact">Contact Us</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-6 col-lg-1 my-auto text-end">
+                    <div class="col-6 my-auto text-end">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <a href="#" id="search-btn">
@@ -186,7 +161,7 @@
                                     ></i>
                                 </a>
                             </li>
-                            <li class="list-inline-item d-lg-none">
+                            <li class="list-inline-item">
                                 <a id="mburger" href="javascript:void(0)">
                                     <i class="fas fa-bars"></i>
                                 </a>

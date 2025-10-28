@@ -176,7 +176,7 @@
         <footer class="pt-30 pb-60">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 my-auto">
+                    <div class="col-6 my-auto">
                         <a class="anchor" id="btn-logo" href="<?php echo esc_url(
                             home_url(),
                         ); ?>">
@@ -195,52 +195,7 @@
                             />
                         </a>
                     </div>
-                    <div class="col-lg-7 my-auto text-center">
-                        <nav class="my-4 my-lg-0">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        home_url(),
-                                    ); ?>" <?php if (
-    is_front_page()
-): ?>class="active"<?php endif; ?>>Home</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(33),
-                                    ); ?>" <?php if (
-    is_page(33)
-): ?>class="active"<?php endif; ?>>About Us</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(35),
-                                    ); ?>" <?php if (
-    is_page(35)
-): ?>class="active"<?php endif; ?>>Services</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        get_permalink(39),
-                                    ); ?>" <?php if (
-    is_page(39)
-): ?>class="active"<?php endif; ?>>Markets</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="<?php echo esc_url(
-                                        home_url(),
-                                    ); ?>/news" <?php if (
-    is_archive() ||
-    is_home()
-): ?>class="active"<?php endif; ?>>News and Events</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#contact">Contact Us</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-lg-2 my-auto text-center text-lg-end">
+                    <div class="col-6 my-auto text-center text-lg-end">
                         <ul
                             class="certificaciones list-unstyled mt-4 mt-lg-0 mb-0"
                         >
