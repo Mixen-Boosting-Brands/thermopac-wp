@@ -424,6 +424,7 @@ header {
             rgba(47, 98, 172, 1) 0%,
             rgba(144, 195, 234, 1) 100%
         );
+        // color: $main-text;
         color: $white;
 
         .row {
@@ -434,8 +435,6 @@ header {
     }
 
     form {
-        color: $main-text;
-
         p,
         label,
         .form-control {
@@ -447,11 +446,11 @@ header {
             border: 0;
             border-bottom: 1px solid $white;
             border-radius: 0;
-            color: $main-text;
+            color: $white;
         }
 
         .form-floating > label {
-            color: $main-text;
+            color: $white;
         }
 
         textarea {
