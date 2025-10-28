@@ -313,8 +313,15 @@ get_header(); ?>
                             data-aos-duration="1500"
                             data-aos-delay="0"
                         >
-                            News <span>and Events</span>
+                            Sustainability <span>and News</span>
                         </h1>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                            data-aos-delay="100"
+                        >
+                            From tooling to forming, our operations are engineered for minimal waste and maximum efficiency. We continuously invest in precision equipment and process optimization to reduce energy consumption, material usage, and CO₂ emissions — without compromising quality or performance.
+                        </p>
                     </div>
                 </div>
                 <div class="row">
