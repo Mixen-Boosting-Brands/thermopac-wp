@@ -166,7 +166,7 @@ header {
     }
 
     #logo-navbar {
-        width: 200px;
+        width: 260px;
         @include transition(ease, 0.2s);
     }
 
@@ -455,6 +455,10 @@ footer {
         &:focus {
             color: #959aa4;
         }
+    }
+
+    .logo {
+        max-width: 260px;
     }
 
     .active {
