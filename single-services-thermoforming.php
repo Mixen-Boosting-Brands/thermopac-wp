@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="row py-60">
+        <div class="row pt-60 pb-30">
             <div class="col text-center">
                 <h1>Our Products</h1>
                 <?php
@@ -78,7 +78,7 @@
         </div>
 
         <?php if (have_rows("our_products_images")): ?>
-        <div class="row py-60">
+        <div class="row py-30">
             <!-- Slider main container -->
             <div
                 class="swiper-inner"
@@ -154,7 +154,7 @@
         </div>
         <?php endif; ?>
 
-        <div class="row py-60">
+        <div class="row pt-30 pb-60">
             <div class="col text-center">
                 <?php
                 $our_products_inferior_text = get_field(
@@ -173,7 +173,7 @@
             </div>
         </div>
 
-        <div class="row py-60">
+        <div class="row pt-60 pb-30">
             <div class="col text-center">
                 <h1>Materials</h1>
                 <?php
@@ -191,7 +191,7 @@
             </div>
         </div>
 
-        <div class="row py-60">
+        <div class="row pt-30 pb-60">
             <?php if (have_rows("materials_images")): ?>
                 <?php while (have_rows("materials_images")):
                     the_row(); ?>
@@ -212,7 +212,7 @@
             <?php endif; ?>
         </div>
 
-        <div class="row py-60">
+        <div class="row pt-60 pb-30">
             <div class="col text-center">
                 <h1>Secondary Operations</h1>
                 <?php
@@ -231,8 +231,9 @@
                 ?>
             </div>
         </div>
+
         <?php if (have_rows("secondary_operations_images")): ?>
-        <div class="row mb-5">
+        <div class="row py-30">
             <!-- Slider main container -->
             <div
                 class="swiper-inner"
@@ -269,7 +270,7 @@
         </div>
         <?php endif; ?>
 
-        <div class="row py-60">
+        <div class="row pt-30 pb-60">
             <div class="col text-center">
                 <?php
                 $secondary_operations_inferior_text = get_field(
@@ -288,7 +289,7 @@
             </div>
         </div>
 
-        <div class="row py-60">
+        <div class="row pt-60 pb-30">
             <div class="col text-center">
                 <h1>Quality</h1>
                 <?php
@@ -305,7 +306,8 @@
                 ?>
             </div>
         </div>
-        <div class="row py-60">
+
+        <div class="row pt-30 pb-60">
             <?php if (have_rows("quality_images")): ?>
                 <?php while (have_rows("quality_images")):
                     the_row(); ?>
