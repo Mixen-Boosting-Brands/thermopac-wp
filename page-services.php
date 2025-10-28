@@ -63,7 +63,8 @@ if (have_rows("service")): ?>
             <div class="row mb-4">
                 <div class="col text-center">
                     <?php // We already fetched the service name, so we can just use it.
-                    if ($service_name): ?>
+
+        if ($service_name): ?>
                     <h1
                         data-aos="fade-up"
                         data-aos-duration="1500"
@@ -76,13 +77,13 @@ if (have_rows("service")): ?>
                     // Use get_sub_field() for the headline
                     $superior_headline = get_sub_field("superior_headline");
                     if ($superior_headline): ?>
-                    <h1
+                    <h2
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="100"
                     >
                         <?php echo $superior_headline; ?>
-                    </h1>
+                    </h2>
                     <?php endif;
                     ?>
                 </div>
@@ -132,13 +133,13 @@ if (have_rows("service")): ?>
                     // Use get_sub_field() for the headline
                     $inferior_headline = get_sub_field("inferior_headline");
                     if ($inferior_headline): ?>
-                    <h1
+                    <h2
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
                     >
                         <?php echo $inferior_headline; ?>
-                    </h1>
+                    </h2>
                     <?php endif;
                     ?>
 
