@@ -27,7 +27,7 @@
 
 <section class="pt-60 pb-30">
     <div class="container">
-        <div class="row mb-4">
+        <div class="row py-60">
             <div class="col text-center">
                 <?php
                 $superior_headline = get_field("superior_headline");
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row py-60">
             <div class="col text-center">
                 <h1>Our Products</h1>
                 <?php
@@ -78,7 +78,7 @@
         </div>
 
         <?php if (have_rows("our_products_images")): ?>
-        <div class="row mb-5">
+        <div class="row py-60">
             <!-- Slider main container -->
             <div
                 class="swiper-inner"
@@ -91,8 +91,6 @@
                     <?php while (have_rows("our_products_images")):
 
                         the_row();
-
-                        // --- MODIFICATION START ---
 
                         // Get fields for the VISIBLE SLIDE
                         $image_url = get_sub_field("image");
@@ -121,8 +119,6 @@
                             esc_attr($modal_images_json),
                             $encoded_description,
                         );
-
-                        // --- MODIFICATION END ---
                         ?>
                         <?php if ($image_url): ?>
                         <!-- Slide -->
@@ -157,7 +153,8 @@
             </div>
         </div>
         <?php endif; ?>
-        <div class="row mb-4">
+
+        <div class="row py-60">
             <div class="col text-center">
                 <?php
                 $our_products_inferior_text = get_field(
@@ -176,7 +173,7 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row py-60">
             <div class="col text-center">
                 <h1>Materials</h1>
                 <?php
@@ -193,7 +190,8 @@
                 ?>
             </div>
         </div>
-        <div class="row mb-4">
+
+        <div class="row py-60">
             <?php if (have_rows("materials_images")): ?>
                 <?php while (have_rows("materials_images")):
                     the_row(); ?>
@@ -214,7 +212,7 @@
             <?php endif; ?>
         </div>
 
-        <div class="row mb-4">
+        <div class="row py-60">
             <div class="col text-center">
                 <h1>Secondary Operations</h1>
                 <?php
@@ -270,7 +268,8 @@
             </div>
         </div>
         <?php endif; ?>
-        <div class="row mb-4">
+
+        <div class="row py-60">
             <div class="col text-center">
                 <?php
                 $secondary_operations_inferior_text = get_field(
@@ -289,7 +288,7 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row py-60">
             <div class="col text-center">
                 <h1>Quality</h1>
                 <?php
@@ -306,7 +305,7 @@
                 ?>
             </div>
         </div>
-        <div class="row mb-4">
+        <div class="row py-60">
             <?php if (have_rows("quality_images")): ?>
                 <?php while (have_rows("quality_images")):
                     the_row(); ?>
