@@ -52,6 +52,15 @@ h1 {
     letter-spacing: -1px;
 }
 
+h2 {
+    @include font-size(2.3rem);
+    letter-spacing: -1px;
+}
+
+p {
+    @include font-size(2.3rem);
+}
+
 .badge {
     font-family: "circular_stdbold", sans-serif;
     font-weight: bold;
