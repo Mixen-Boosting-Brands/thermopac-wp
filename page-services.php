@@ -47,16 +47,22 @@ get_header(); ?>
 
 if (have_rows("service")): ?>
     <?php while (have_rows("service")):
-        the_row(); ?>
 
-<section class="service py-30">
+        the_row();
+
+        // 1. Get the service name from the sub field.
+        $service_name = get_sub_field("service_name");
+        // 2. Create a URL-friendly slug to use as an ID.
+        //    (e.g., "Design and Engineering" becomes "design-and-engineering")
+        $service_id = sanitize_title($service_name);
+        ?>
+
+<section id="<?php echo esc_attr($service_id); ?>" class="service py-60">
     <div class="container">
         <div class="container">
             <div class="row mb-4">
                 <div class="col text-center">
-                    <?php
-                    // Use get_sub_field() for the headline
-                    $service_name = get_sub_field("service_name");
+                    <?php // We already fetched the service name, so we can just use it.
                     if ($service_name): ?>
                     <h1
                         data-aos="fade-up"
@@ -65,8 +71,7 @@ if (have_rows("service")): ?>
                     >
                         <?php echo $service_name; ?>
                     </h1>
-                    <?php endif;
-                    ?>
+                    <?php endif; ?>
                     <?php
                     // Use get_sub_field() for the headline
                     $superior_headline = get_sub_field("superior_headline");
