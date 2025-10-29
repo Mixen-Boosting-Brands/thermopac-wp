@@ -393,10 +393,39 @@
     }
 }
 
+// Swiper modals
 .modal-swiper {
-    position: relative; // Needed for absolute positioning of arrows
+    position: relative;
     overflow: hidden;
+    // Add a background color to the main container, visible during slide transitions
+    background-color: #000;
 
+    // --- NEW STYLES START ---
+
+    .swiper-slide {
+        // Use flexbox to perfectly center the image inside the slide
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // A black background provides a professional "letterbox" effect
+        // for images that don't fill the entire slide.
+        background-color: #000;
+    }
+
+    .swiper-slide img {
+        // These properties ensure the image fits without being cropped
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // This is the magic property!
+
+        // Good practice: prevent extremely tall images from making the modal too big
+        max-height: 85vh; // 85% of the viewport height
+    }
+
+    // --- NEW STYLES END ---
+
+    // --- Your existing button styles (unchanged) ---
     .swiper-button-prev,
     .swiper-button-next {
         position: absolute;
@@ -409,12 +438,11 @@
         align-items: center;
         justify-content: center;
         background-color: transparent;
-        // Use a dark color for the border to be visible on a white background
         transition: all 0.3s ease;
 
-        // Override Swiper's default CSS custom properties with a dark color
-        --swiper-navigation-color: #{$dark}; // Or #333
-        --swiper-theme-color: #{$dark}; // Or #333
+        // Override Swiper's default CSS custom properties
+        --swiper-navigation-color: #{$dark};
+        --swiper-theme-color: #{$dark};
 
         &::after {
             font-size: 16px;
@@ -423,12 +451,10 @@
     }
 
     .swiper-button-prev {
-        // Adjust position to be inside the modal nicely
         left: 15px !important;
     }
 
     .swiper-button-next {
-        // Adjust position to be inside the modal nicely
         right: 15px !important;
     }
 
