@@ -307,7 +307,7 @@
             </div>
         </div>
 
-        <div class="row pt-30 pb-60">
+        <div id="quiality-images" class="row pt-30 pb-60">
             <?php
             $quality_images = get_field("quality_images");
 

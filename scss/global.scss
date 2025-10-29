@@ -540,3 +540,11 @@ footer {
         }
     }
 }
+
+#quality-images {
+    img {
+        max-width: 360px;
+        max-height: max-content;
+        margin: 0 auto;
+    }
+}
