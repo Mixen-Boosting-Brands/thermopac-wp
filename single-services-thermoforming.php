@@ -308,24 +308,43 @@
         </div>
 
         <div class="row pt-30 pb-60">
-            <?php if (have_rows("quality_images")): ?>
-                <?php while (have_rows("quality_images")):
-                    the_row(); ?>
-                    <?php $image_url = get_sub_field("image"); ?>
-                    <?php if ($image_url): ?>
-                    <!-- Slide -->
-                    <div class="col-6 col-lg-3 text-center">
-                        <img
-                            src="<?php echo esc_url($image_url); ?>"
-                            alt=""
-                            class="img-fluid mb-3 mb-lg-0"
-                            loading="lazy"
-                        />
-                    </div>
-                    <?php endif; ?>
-                <?php
-                endwhile; ?>
-            <?php endif; ?>
+            <?php
+            $quality_images = get_field("quality_images");
+
+            if ($quality_images):
+                $count = count($quality_images);
+                $col_class = "";
+                switch ($count) {
+                    case 1:
+                        $col_class = "col-12 col-lg-12 text-center";
+                        break;
+                    case 2:
+                        $col_class = "col-6 col-lg-6 text-center";
+                        break;
+                    case 3:
+                        $col_class = "col-6 col-lg-4 text-center";
+                        break;
+                    default:
+                        $col_class = "col-6 col-lg-3 text-center";
+                        break;
+                }
+
+                while (have_rows("quality_images")):
+                    the_row();
+                    $image_url = get_sub_field("image");
+                    if ($image_url): ?>
+                        <div class="<?php echo esc_attr($col_class); ?>">
+                            <img
+                                src="<?php echo esc_url($image_url); ?>"
+                                alt="Quality Seal"
+                                class="img-fluid mb-3 mb-lg-0"
+                                loading="lazy"
+                            />
+                        </div>
+                    <?php endif;
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 </section>
