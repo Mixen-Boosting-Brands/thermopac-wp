@@ -420,7 +420,7 @@
         object-fit: contain; // This is the magic property!
 
         // Good practice: prevent extremely tall images from making the modal too big
-        max-height: 85vh; // 85% of the viewport height
+        max-height: 55vh; // 55% of the viewport height
     }
 
     // --- NEW STYLES END ---
