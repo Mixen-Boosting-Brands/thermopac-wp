@@ -197,23 +197,14 @@
                     </div>
                     <div class="col-6 my-auto text-center text-lg-end">
                         <ul
-                            class="certificaciones list-unstyled mt-4 mt-lg-0 mb-0"
+                            class="certifications list-unstyled mt-4 mt-lg-0 mb-0"
                         >
                             <li class="list-inline-item">
                                 <img
                                     class="img-fluid"
                                     src="<?php echo esc_url(
                                         get_template_directory_uri(),
-                                    ); ?>/assets/images/certificaciones/1.png"
-                                    alt=""
-                                />
-                            </li>
-                            <li class="list-inline-item">
-                                <img
-                                    class="img-fluid"
-                                    src="<?php echo esc_url(
-                                        get_template_directory_uri(),
-                                    ); ?>/assets/images/certificaciones/2.png"
+                                    ); ?>/assets/images/certifications/isos.png"
                                     alt=""
                                 />
                             </li>
