@@ -2,7 +2,7 @@
     background-color: $white !important;
     width: 100%;
     height: 100vh;
-    padding: 0 92px;
+    padding: 0 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +106,7 @@
                             li {
                                 line-height: 2.1rem;
                                 a {
-                                    font-size: 1.2rem; // Slightly smaller font for submenu items
+                                    font-size: 1rem; // Slightly smaller font for submenu items
                                     font-weight: 200;
                                 }
                             }
