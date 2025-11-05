@@ -36,6 +36,15 @@
         }
     }
 
+    // Medium devices (tablets, 768px and up)
+    @include media-breakpoint-up(md) {
+        .swiper-slide {
+            background-position: left !important;
+            justify-content: end;
+            padding-right: 92px;
+        }
+    }
+
     // Custom navigation arrows positioning
     .swiper-button-prev,
     .swiper-button-next {
