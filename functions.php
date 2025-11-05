@@ -631,20 +631,4 @@ function bootstrap_pagination(
         }
     }
     return null;
-} /**
- * Incluye Custom Post Types en los resultados de búsqueda de WordPress.
- *
- * @param WP_Query $query El objeto de la consulta de WordPress.
- * @return void
- */
-function thermopac_include_cpts_in_search($query)
-{
-    // Solo modificar la consulta principal en el front-end y si es una búsqueda.
-    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
-        // Aquí defines los post types que quieres incluir.
-        // Asegúrate de incluir 'post' y 'page' si también quieres que aparezcan.
-        // Reemplaza 'producto', 'servicio', etc., con los slugs reales de tus CPTs.
-        $query->set("post_type", ["post", "page", "producto", "servicio"]);
-    }
 }
-add_action("pre_get_posts", "thermopac_include_cpts_in_search");
