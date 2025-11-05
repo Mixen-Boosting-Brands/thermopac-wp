@@ -187,7 +187,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // --- REPEATER-SAFE SWIPER INNER INITIALIZATION ---
+    // --- REPEATER-SAFE SWIPER INNER INITIALIZATION (MODIFIED) ---
+
+    /**
+     * Handles the client request to make the swiper static above a certain breakpoint.
+     * - Disables all interaction (drag, nav, pagination) at 992px and up.
+     * - Centers the 2nd slide (index 1) when static.
+     * - Re-enables the swiper below 992px.
+     * @param {Swiper} swiper The swiper instance.
+     */
+    function manageSwiperStateByBreakpoint(swiper) {
+        const breakpoint = 992; // The pixel width to switch behavior
+
+        if (window.innerWidth >= breakpoint) {
+            // --- STATIC STATE (Large Screens) ---
+            // If the swiper is currently enabled, disable it.
+            if (swiper.enabled) {
+                swiper.disable();
+            }
+            // Instantly move to the second slide (index is 0-based).
+            // The second argument `0` means it happens instantly with no transition.
+            swiper.slideTo(1, 0);
+        } else {
+            // --- INTERACTIVE STATE (Small Screens) ---
+            // If the swiper is currently disabled, re-enable it.
+            if (!swiper.enabled) {
+                swiper.enable();
+            }
+        }
+    }
+
     // Select ALL instances of the inner swiper
     const swiperInnerInstances = document.querySelectorAll(".swiper-inner");
 
@@ -198,6 +227,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const prevBtn = swiperContainer.querySelector(".swiper-button-prev");
         const paginationEl =
             swiperContainer.querySelector(".swiper-pagination");
+
+        // There are only 3 slides, so we don't need a loop
+        const loopValue = false;
 
         new Swiper(swiperContainer, {
             modules: [
@@ -215,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
             direction: "horizontal",
             allowTouchMove: true,
             spaceBetween: 0,
-            loop: false,
+            loop: loopValue,
             grabCursor: true,
             keyboard: {
                 enabled: false,
@@ -227,6 +259,8 @@ document.addEventListener("DOMContentLoaded", function () {
             breakpoints: {
                 576: { slidesPerView: 1, spaceBetween: 15 },
                 768: { slidesPerView: 2, spaceBetween: 20 },
+                // This breakpoint now defines the look for when the swiper is ENABLED
+                // between 992px and 1199px. Our custom function will disable it anyway.
                 992: {
                     slidesPerView: 2.5,
                     spaceBetween: 30,
@@ -240,22 +274,32 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             on: {
+                // Run checks on initialization
                 init: function () {
                     updateNavigationButtons(this);
-                    if (this.params.centeredSlides) {
+                    manageSwiperStateByBreakpoint(this);
+
+                    // Only run slide update if centered and enabled
+                    if (this.params.centeredSlides && this.enabled) {
                         updateCenteredSlide(this);
                     }
                 },
+                // Run checks on slide change
                 slideChange: function () {
-                    if (this.params.centeredSlides) {
+                    // Only run this logic if the swiper is enabled and centered
+                    if (this.enabled && this.params.centeredSlides) {
                         updateCenteredSlide(this);
                     }
                 },
+                // Run checks on window resize
                 resize: function () {
                     updateNavigationButtons(this);
-                    if (this.params.centeredSlides) {
+                    manageSwiperStateByBreakpoint(this);
+
+                    if (this.params.centeredSlides && this.enabled) {
                         updateCenteredSlide(this);
                     } else {
+                        // Clean up active classes if not centered/enabled
                         this.slides.forEach((slide) => {
                             slide.classList.remove("active");
                         });
