@@ -9,7 +9,7 @@ get_header(); ?>
         <div class="row">
             <div class="col">
                 <!-- Slider main container -->
-                <div class="swiper-header rounded">
+                <div class="swiper-header swiper-markets rounded">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <?php if (have_rows("slider")): ?>
