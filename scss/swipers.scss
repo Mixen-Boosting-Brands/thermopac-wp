@@ -60,6 +60,20 @@
         }
     }
 
+    // X-Large devices (large desktops, 1200px and up)
+    @include media-breakpoint-up(xl) {
+        .swiper-slide {
+            padding-right: 234px;
+        }
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @include media-breakpoint-up(xxl) {
+        .swiper-slide {
+            padding-right: 322px;
+        }
+    }
+
     // Custom navigation arrows positioning
     .swiper-button-prev,
     .swiper-button-next {
