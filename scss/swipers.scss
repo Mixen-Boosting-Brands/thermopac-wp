@@ -53,6 +53,13 @@
         }
     }
 
+    // Large devices (desktops, 992px and up)
+    @include media-breakpoint-up(lg) {
+        .swiper-slide {
+            padding-right: 152px;
+        }
+    }
+
     // Custom navigation arrows positioning
     .swiper-button-prev,
     .swiper-button-next {
