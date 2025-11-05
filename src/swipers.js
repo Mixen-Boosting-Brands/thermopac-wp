@@ -189,21 +189,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * A reusable function to enable or disable a swiper instance based on a breakpoint.
-     * When disabled, it ensures the swiper is locked to the second slide (index 1).
+     * When disabled, it ensures the swiper is locked to the second slide and hides navigation.
      * @param {Swiper} swiper The swiper instance to manage.
      */
     function manageSwiperStateByBreakpoint(swiper) {
         // Use matchMedia for modern and efficient breakpoint checking
         const isDesktop = window.matchMedia("(min-width: 992px)").matches;
 
+        // Safely get navigation elements
+        const { navigation } = swiper;
+        const nextBtn = navigation && navigation.nextEl;
+        const prevBtn = navigation && navigation.prevEl;
+
         if (isDesktop) {
             // On desktop, disable all interaction
             swiper.disable();
-            // Ensure it's on the correct slide (useful for resize events)
-            swiper.slideTo(1, 0);
+            swiper.slideTo(1, 0); // Ensure it's on the correct slide
+
+            // NEW: Hide buttons on desktop if they exist
+            if (nextBtn && prevBtn) {
+                nextBtn.style.display = "none";
+                prevBtn.style.display = "none";
+            }
         } else {
             // On mobile, re-enable interaction
             swiper.enable();
+
+            // NEW: Show buttons on mobile if they exist
+            if (nextBtn && prevBtn) {
+                // An empty string resets the inline style, allowing the stylesheet to take over
+                nextBtn.style.display = "";
+                prevBtn.style.display = "";
+            }
         }
     }
 
@@ -229,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Scrollbar,
             ],
 
-            // KEY CHANGE: Start on the second slide (index 1)
+            // Start on the second slide (index 1)
             initialSlide: 1,
 
             autoplay: {
@@ -263,14 +280,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
             },
 
-            // Simplified event handlers
+            // Event handlers call our new management function
             on: {
                 init: function () {
-                    // Check the state as soon as the swiper is initialized
                     manageSwiperStateByBreakpoint(this);
                 },
                 resize: function () {
-                    // Re-check the state every time the window is resized
                     manageSwiperStateByBreakpoint(this);
                 },
             },
@@ -283,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             pagination: {
                 el: paginationEl,
-                clickable: true, // Good practice to add
+                clickable: true,
             },
         });
     });
