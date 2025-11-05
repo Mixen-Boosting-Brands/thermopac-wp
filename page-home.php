@@ -206,20 +206,6 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col text-center">
-                        <a
-                            class="btn btn-lg rounded-pill"
-                            href="#contact"
-                            data-aos="fade-up"
-                            data-aos-duration="1500"
-                            data-aos-delay="400"
-                        >
-                            Contact Us
-                            <i class="fa-regular fa-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
