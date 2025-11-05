@@ -34,6 +34,14 @@
             background-color: rgba(22, 35, 64, 0.5);
             z-index: 1;
         }
+
+        h1 {
+            margin-bottom: 0;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
     }
 
     // Medium devices (tablets, 768px and up)
