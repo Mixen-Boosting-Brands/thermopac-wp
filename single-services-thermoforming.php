@@ -100,6 +100,7 @@
                         $modal_images_repeater = get_sub_field("images");
                         $modal_description = get_sub_field("description");
 
+                        // --- THIS IS THE FIX ---
                         // Prepare data for the modal's data attributes
                         $modal_image_urls = [];
                         if ($modal_images_repeater) {
@@ -108,17 +109,17 @@
                             }
                         }
                         $modal_images_json = json_encode($modal_image_urls);
-                        $encoded_description = base64_encode(
-                            $modal_description,
-                        );
+                        // We no longer need to base64_encode the description.
 
-                        // Create the full attribute string for the trigger element
+                        // Create the full attribute string using esc_attr() for safety.
                         $modal_attributes = sprintf(
                             'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-images=\'%s\' data-bs-description="%s"',
                             esc_attr($product_name),
                             esc_attr($modal_images_json),
-                            $encoded_description,
+                            esc_attr($modal_description), // Directly use esc_attr() on the description
                         );
+
+                        // --- END OF FIX ---
                         ?>
                         <?php if ($image_url): ?>
                         <!-- Slide -->
