@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="header-inner" class="pb-30">
+<section id="header-home" class="pb-30">
     <div class="container">
         <div class="row">
             <div class="col">
