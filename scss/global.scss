@@ -222,6 +222,7 @@ header {
         h1 {
             position: relative;
 
+            /*
             &:before,
             &:after {
                 content: "";
@@ -254,8 +255,10 @@ header {
                 background-color: rgba(22, 35, 64, 0.3);
                 z-index: -2;
             }
+            */
 
             // Mobile adjustments
+            /*
             @media (max-width: 575px) {
                 &:before {
                     width: 150px;
@@ -267,8 +270,10 @@ header {
                     height: 180px;
                 }
             }
+            */
 
             // Tablet adjustments
+            /*
             @media (min-width: 576px) and (max-width: 991px) {
                 &:before {
                     width: 200px;
@@ -280,9 +285,11 @@ header {
                     height: 240px;
                 }
             }
+            */
         }
 
         // Active slide - show circles
+        /*
         &.swiper-slide-active h1 {
             &:before {
                 animation: scaleUpCircle 0.8s ease-out forwards;
@@ -292,8 +299,10 @@ header {
                 animation: scaleUpCircle 0.8s ease-out 0.2s forwards;
             }
         }
+        */
 
         // Non-active slides - hide circles
+        /*
         &:not(.swiper-slide-active) h1 {
             &:before,
             &:after {
@@ -301,6 +310,7 @@ header {
                 opacity: 0;
             }
         }
+        */
     }
 }
 
