@@ -211,6 +211,11 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Made with <i class="fas fa-heart"></i> by <a href="https://mixen.mx/" target="_blank">Mixen</a></p>
+                    </div>
+                </div>
             </div>
         </footer>
 
