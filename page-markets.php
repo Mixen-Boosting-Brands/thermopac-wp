@@ -152,7 +152,6 @@ get_header(); ?>
                 $icon = get_sub_field("icon");
                 $name = get_sub_field("name");
                 $text = get_sub_field("text");
-                // $modal_image = get_sub_field("image"); // This is the old single image field, we no longer need it.
                 $modal_description = get_sub_field("description");
 
                 // Get the repeater field for images
@@ -160,12 +159,9 @@ get_header(); ?>
                 $image_urls = [];
                 if ($modal_images) {
                     foreach ($modal_images as $img) {
-                        // Assuming your repeater subfield is named 'image' and returns a URL
                         $image_urls[] = $img["image"];
                     }
                 }
-                // Convert the array of URLs to a JSON string.
-                // We use single quotes for the HTML attribute to safely contain the JSON's double quotes.
                 $modal_images_json = json_encode($image_urls);
 
                 // --- Conditional Logic ---
@@ -175,12 +171,13 @@ get_header(); ?>
                     $link_attributes = ""; // No modal attributes needed
                 } else {
                     $link_href = "javascript:void(0);";
-                    // Replaced data-bs-image with data-bs-images which now contains the JSON string
+                    // MODIFICATION: Replaced base64_encode() with esc_attr()
+                    // This is safer and avoids the encoding issue.
                     $link_attributes = sprintf(
                         'data-bs-toggle="modal" data-bs-target="#serviceModal" data-bs-name="%s" data-bs-images=\'%s\' data-bs-description="%s"',
                         esc_attr($name),
                         esc_attr($modal_images_json),
-                        base64_encode($modal_description),
+                        esc_attr($modal_description), // <--- CHANGE IS HERE
                     );
                 }
                 ?>

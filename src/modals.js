@@ -31,30 +31,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // --- MODIFICATION START ---
             // Extract info from data-bs-* attributes
             const name = button.getAttribute("data-bs-name");
             // Get the JSON string of image URLs
             const imagesJson = button.getAttribute("data-bs-images");
-            const encodedDescription = button.getAttribute(
-                "data-bs-description"
-            );
+            // Get the raw HTML description (no longer base64 encoded)
+            const description = button.getAttribute("data-bs-description");
 
-            // Update the modal's content
+            // Get references to the modal's content elements
             const modalTitle = serviceModal.querySelector("#serviceModalLabel");
             const modalDescription =
                 serviceModal.querySelector("#modalDescription");
             const swiperWrapper = serviceModal.querySelector(
                 ".modal-swiper .swiper-wrapper"
             );
-            // --- MODIFICATION END ---
 
             // Update title
             if (modalTitle) {
                 modalTitle.textContent = name || "";
             }
 
-            // --- MODIFICATION START: Populate Swiper slider ---
+            // Populate Swiper slider
             if (swiperWrapper && imagesJson) {
                 // Clear any previous slides
                 swiperWrapper.innerHTML = "";
@@ -69,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             swiperWrapper.appendChild(slide);
                         });
                     } else {
-                        // Handle case with no images or single image passed incorrectly
+                        // Handle case with no images
                         swiperWrapper.innerHTML =
                             '<p class="text-center">No images available.</p>';
                     }
@@ -79,25 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         '<p class="text-center">Error loading images.</p>';
                 }
             }
-            // --- MODIFICATION END ---
 
-            // Update description (with safety check)
+            // Update description
+            // We no longer need to decode from base64. We just set the innerHTML.
             if (modalDescription) {
-                let description = "";
-                // Only decode if the description string is not empty
-                if (encodedDescription) {
-                    try {
-                        description = atob(encodedDescription);
-                    } catch (e) {
-                        console.error(
-                            "Failed to decode base64 description:",
-                            e
-                        );
-                        description =
-                            "There was an error displaying this content.";
-                    }
-                }
-                modalDescription.innerHTML = description;
+                modalDescription.innerHTML = description || "";
             }
         });
 
@@ -117,8 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Optional parameters
                 loop: true,
                 navigation: {
-                    nextEl: ".modal-swiper .swiper-button-next", // Be more specific for safety
-                    prevEl: ".modal-swiper .swiper-button-prev", // Be more specific for safety
+                    nextEl: ".modal-swiper .swiper-button-next",
+                    prevEl: ".modal-swiper .swiper-button-prev",
                 },
             });
         });
