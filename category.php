@@ -25,13 +25,13 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col text-center">
-                    <h1
+                    <h2
                         data-aos="fade-up"
                         data-aos-duration="1500"
                         data-aos-delay="0"
                     >
                         At Thermopac sustainability isn’t just part of our process — it shapes everything we design, manufacture, and deliver. <span>Through innovation in thermoforming and material efficiency</span>, we’re committed to creating packaging solutions that perform beautifully while protecting the planet.
-                    </h1>
+                    </h2>
                     <p
                         data-aos="fade-up"
                         data-aos-duration="1500"
