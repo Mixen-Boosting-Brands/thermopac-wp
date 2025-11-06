@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // --- MODIFICATION IS HERE ---
             // Extract info from data-bs-* attributes
             const name = button.getAttribute("data-bs-name");
-            // Get the JSON string of image URLs
             const imagesJson = button.getAttribute("data-bs-images");
-            // Get the raw HTML description (no longer base64 encoded)
+            // This is now the raw (but properly escaped) HTML from PHP.
             const description = button.getAttribute("data-bs-description");
 
-            // Get references to the modal's content elements
+            // Update the modal's content
             const modalTitle = serviceModal.querySelector("#serviceModalLabel");
             const modalDescription =
                 serviceModal.querySelector("#modalDescription");
@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             swiperWrapper.appendChild(slide);
                         });
                     } else {
-                        // Handle case with no images
                         swiperWrapper.innerHTML =
                             '<p class="text-center">No images available.</p>';
                     }
@@ -77,27 +76,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // Update description
-            // We no longer need to decode from base64. We just set the innerHTML.
+            // Update description (with no decoding needed)
             if (modalDescription) {
+                // We just set the innerHTML directly. No atob(), no try/catch.
                 modalDescription.innerHTML = description || "";
             }
         });
 
         // Initialize Swiper AFTER the modal has finished showing.
-        // This ensures Swiper can correctly calculate its dimensions.
         serviceModal.addEventListener("shown.bs.modal", function () {
             modalSwiper = new Swiper(".modal-swiper", {
-                // 1. Tell Swiper to use the modules you imported
                 modules: [Navigation, Autoplay],
-
-                // 2. Add the autoplay configuration
                 autoplay: {
-                    delay: 3000, // 3 seconds between slides
-                    disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+                    delay: 3000,
+                    disableOnInteraction: false,
                 },
-
-                // Optional parameters
                 loop: true,
                 navigation: {
                     nextEl: ".modal-swiper .swiper-button-next",
@@ -107,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Destroy Swiper instance when the modal is hidden
-        // This is crucial to prevent issues when reopening the modal
         serviceModal.addEventListener("hide.bs.modal", function () {
             if (modalSwiper) {
                 modalSwiper.destroy(true, true);
