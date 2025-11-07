@@ -181,7 +181,7 @@
                             home_url(),
                         ); ?>">
                             <img
-                                class="logo img-fluid mb-4 mb-lg-0"
+                                class="logo img-fluid"
                                 alt="Thermopac"
                                 src="<?php echo esc_url(
                                     get_template_directory_uri(),
@@ -197,7 +197,7 @@
                     </div>
                     <div class="col-sm-6 my-auto text-center text-lg-end">
                         <ul
-                            class="certifications list-unstyled mt-4 mt-sm-0 mb-0"
+                            class="certifications list-unstyled my-4 my-sm-0 mb-0"
                         >
                             <li class="list-inline-item">
                                 <img
