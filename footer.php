@@ -176,7 +176,7 @@
         <footer class="pt-30 pb-60">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 my-auto">
+                    <div class="col-sm-6 my-auto text-center text-sm-start">
                         <a class="anchor" id="btn-logo" href="<?php echo esc_url(
                             home_url(),
                         ); ?>">
@@ -195,9 +195,9 @@
                             />
                         </a>
                     </div>
-                    <div class="col-sm-6 my-auto text-center text-lg-end">
+                    <div class="col-sm-6 my-auto text-center text-sm-end">
                         <ul
-                            class="certifications list-unstyled my-4 my-sm-0 mb-0"
+                            class="certifications list-unstyled my-4 my-sm-0"
                         >
                             <li class="list-inline-item">
                                 <img
