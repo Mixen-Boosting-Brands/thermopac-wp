@@ -60,6 +60,12 @@
             padding: 100px;
         }
     }
+
+    #quality-images {
+        img {
+            max-width: 300px;
+        }
+    }
 }
 
 // X-Large devices (large desktops, 1200px and up)
