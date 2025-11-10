@@ -101,37 +101,7 @@
 // Swiper markets
 .swiper-markets {
     .swiper-slide {
-        background-size: contain !important;
-    }
-
-    // Medium devices (tablets, 768px and up)
-    @include media-breakpoint-up(md) {
-        .swiper-slide {
-            background-position: left !important;
-            justify-content: end;
-            padding-right: 92px;
-        }
-    }
-
-    // Large devices (desktops, 992px and up)
-    @include media-breakpoint-up(lg) {
-        .swiper-slide {
-            padding-right: 152px;
-        }
-    }
-
-    // X-Large devices (large desktops, 1200px and up)
-    @include media-breakpoint-up(xl) {
-        .swiper-slide {
-            padding-right: 234px;
-        }
-    }
-
-    // XX-Large devices (larger desktops, 1400px and up)
-    @include media-breakpoint-up(xxl) {
-        .swiper-slide {
-            padding-right: 322px;
-        }
+        background-size: cover !important;
     }
 }
 
