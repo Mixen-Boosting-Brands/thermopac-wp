@@ -5,7 +5,7 @@ Template Name: Home
 get_header(); ?>
 
 <section id="header-home" class="pb-30">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
             <?php if (have_rows("slider")): ?>
