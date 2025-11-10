@@ -4,7 +4,7 @@ Template Name: Markets
 */
 get_header(); ?>
 
-<section id="header-home" class="pb-30">
+<section class="pb-30 d-none d-md-block">
     <div class="container">
         <div class="row">
             <?php
@@ -15,7 +15,14 @@ get_header(); ?>
             </div>
             <?php endif;
             ?>
-            <div class="col d-md-none">
+        </div>
+    </div>
+</section>
+
+<section id="header-home" class="pb-30 d-md-none">
+    <div class="container">
+        <div class="row">
+            <div class="col">
                 <!-- Slider main container -->
                 <div class="swiper-header swiper-markets rounded">
                     <!-- Additional required wrapper -->
