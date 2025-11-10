@@ -11,7 +11,7 @@ get_header(); ?>
             $banner_desktop = get_field("banner_desktop");
             if ($banner_desktop): ?>
             <div class="col d-none d-md-block text-center">
-                <img class="img-fluid" src="<?php echo $banner_desktop; ?>" alt="" />
+                <img class="w-100 img-fluid" src="<?php echo $banner_desktop; ?>" alt="" />
             </div>
             <?php endif;
             ?>
