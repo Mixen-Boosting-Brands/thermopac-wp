@@ -9,7 +9,7 @@ get_header(); ?>
         <div class="row">
             <?php
             $banner_desktop = get_field("banner_desktop");
-            if ($superior_headline): ?>
+            if ($banner_desktop): ?>
             <div class="col d-none d-md-block text-center">
                 <img class="img-fluid" src="$banner_desktop" alt="" />
             </div>
