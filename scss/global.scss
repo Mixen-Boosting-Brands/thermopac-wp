@@ -219,6 +219,11 @@ header {
         height: 100%;
     }
 
+    .container-fluid {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
     .swiper-slide {
         h1 {
             position: relative;
