@@ -11,7 +11,7 @@ get_header(); ?>
             <?php if (have_rows("slider")): ?>
                 <?php while (have_rows("slider")):
                     the_row(); ?>
-                <div class="video-container rounded">
+                <div class="video-container">
                     <video class="video-bg" autoplay muted loop playsinline>
                         <source src="<?php echo esc_url(
                             get_sub_field("video"),
