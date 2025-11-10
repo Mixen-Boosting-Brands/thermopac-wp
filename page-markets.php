@@ -7,7 +7,15 @@ get_header(); ?>
 <section id="header-home" class="pb-30">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <?php
+            $banner_desktop = get_field("banner_desktop");
+            if ($superior_headline): ?>
+            <div class="col d-none d-md-block text-center">
+                <img class="img-fluid" src="$banner_desktop" alt="" />
+            </div>
+            <?php endif;
+            ?>
+            <div class="col d-md-none">
                 <!-- Slider main container -->
                 <div class="swiper-header swiper-markets rounded">
                     <!-- Additional required wrapper -->
