@@ -4,7 +4,7 @@ Template Name: Markets
 */
 get_header(); ?>
 
-<section class="pb-30 d-none d-md-block">
+<section class="d-none d-md-block">
     <div class="container">
         <div class="row">
             <?php
@@ -52,7 +52,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="pt-60 pb-30">
+<section class="py-30">
     <div class="container">
         <div class="container">
             <div class="row mb-4">
