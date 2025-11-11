@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="swiper-header rounded">
+                <div class="swiper-header swiper-blog rounded">
                     <div class="swiper-wrapper">
                         <div
                             class="swiper-slide"
