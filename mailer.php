@@ -1,20 +1,21 @@
 <?php
 //Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+// Disable error reporting in production
+ini_set("display_errors", 0);
+ini_set("display_startup_errors", 0);
+error_reporting(0);
+
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Make sure the PHPMailer files are in the correct path relative to mailer.php
-    // If mailer.php is in the theme root, and PHPMailer is in a 'PHPMailer' subdirectory, this is correct.
     require "./PHPMailer/PHPMailer.php";
     require "./PHPMailer/SMTP.php";
     require "./PHPMailer/Exception.php";
 
     // --- FIELD VALIDATION ---
-    // Check that all required fields are filled
     if (
         empty($_POST["name"]) ||
         empty($_POST["email"]) ||
@@ -46,26 +47,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->CharSet = "UTF-8";
 
     try {
-        // --- SERVER SETTINGS --- (You will configure these manually)
+        // --- SERVER SETTINGS (Basado en la configuración de tu hosting) ---
         $mail->isSMTP();
-        $mail->Host = "petropac.com.mx"; // Your SMTP server
+        $mail->Host = "petropac.com.mx"; // Servidor SMTP según tu captura
         $mail->SMTPAuth = true;
-        $mail->Username = "noreplythermopac@petropac.com.mx"; // Your SMTP username
-        $mail->Password = "$m^S#{2@rMj8"; // Your SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 465;
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Uncomment for debugging
+        $mail->Username = "noreplythermopac@petropac.com.mx"; // Usuario
+        $mail->Password = '$m^S#{2@rMj8'; // Usar comillas simples para evitar interpretación de $
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL para puerto 465
+        $mail->Port = 465; // Puerto según tu captura
+
+        // Configuración adicional para evitar timeouts
+        $mail->Timeout = 30;
+        $mail->SMTPKeepAlive = false;
+
+        // Activar debug TEMPORALMENTE para ver qué está pasando
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Comentado para producción
+
+        // Opciones SSL menos estrictas
+        $mail->SMTPOptions = [
+            "ssl" => [
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+                "allow_self_signed" => true,
+            ],
+        ];
 
         // --- RECIPIENTS ---
-        $mail->setFrom($email, $name);
-        $mail->addAddress("luis.pando@mixen.mx", "Thermopac Contact"); // Where the email will be sent
+        // Usar el email autenticado como remitente
+        $mail->setFrom("noreplythermopac@petropac.com.mx", "Thermopac Website");
+        $mail->addAddress("ventas@thermopac.com", "Thermopac Contact");
         $mail->addReplyTo($email, $name);
 
         // --- CONTENT ---
         $mail->isHTML(true);
         $mail->Subject = "New Contact Form Submission: " . $subject;
 
-        // Build the email body
         $mail->Body =
             "
             <h2>New Message from Thermopac Website</h2>
@@ -80,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "</p>
         ";
 
-        // Build a plain text version for email clients that don't support HTML
         $mail->AltBody = "
             New Message from Thermopac Website\n
             Name: {$name}\n
@@ -95,11 +110,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Thank you! Your message has been sent successfully.";
     } catch (Exception $e) {
         http_response_code(500);
+
+        // Mensaje genérico para el usuario
         echo "We're sorry, something went wrong and your message could not be sent. Please try again later.";
-        // For debugging: echo "Mailer Error: {$mail->ErrorInfo}";
+
+        // Loguear el error en el servidor (no visible al usuario)
+        error_log("PHPMailer Error: {$mail->ErrorInfo}");
     }
 } else {
-    // If the file is accessed directly, not via POST
     http_response_code(403);
     echo "You are not allowed to access this page directly.";
 }
