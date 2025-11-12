@@ -151,8 +151,7 @@
                                                 id="contact-spinner"
                                                 class="fas fa-spinner fa-spin"
                                             ></i>
-                                            Enviando tu información, por favor
-                                            espera un momento....
+                                            Submitting your information, please wait a moment...
                                         </div>
                                     </div>
                                 </form>

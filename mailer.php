@@ -48,17 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // --- SERVER SETTINGS --- (You will configure these manually)
         $mail->isSMTP();
-        $mail->Host = "smtp.example.com"; // Your SMTP server
+        $mail->Host = "petropac.com.mx"; // Your SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = "your_email@example.com"; // Your SMTP username
-        $mail->Password = "your_smtp_password"; // Your SMTP password
+        $mail->Username = "noreplythermopac@petropac.com.mx"; // Your SMTP username
+        $mail->Password = "$m^S#{2@rMj8"; // Your SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = 465;
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Uncomment for debugging
 
         // --- RECIPIENTS ---
         $mail->setFrom($email, $name);
-        $mail->addAddress("recipient@example.com", "Thermopac Contact"); // Where the email will be sent
+        $mail->addAddress("luis.pando@mixen.mx", "Thermopac Contact"); // Where the email will be sent
         $mail->addReplyTo($email, $name);
 
         // --- CONTENT ---
