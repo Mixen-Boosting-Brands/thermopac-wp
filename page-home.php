@@ -306,7 +306,7 @@ get_header(); ?>
                             data-aos-duration="1500"
                             data-aos-delay="100"
                         >
-                            From tooling to forming, our operations are engineered for minimal waste and maximum efficiency. We continuously invest in precision equipment and process optimization to reduce energy consumption, material usage, and CO₂ emissions — without compromising quality or performance.
+                            From tooling to forming, our operations are engineered for minimal waste and maximum efficiency. We continuously invest in precision equipment and process optimization to reduce energy consumption, material usage and CO₂ emissions — without compromising quality or performance.
                         </p>
                     </div>
                 </div>
