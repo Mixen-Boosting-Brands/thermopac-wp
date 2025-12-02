@@ -340,41 +340,15 @@ get_header(); ?>
                     <div class="col text-center">
                         <a
                             class="btn btn-primary btn-lg rounded-pill"
-                            href="<?php echo get_permalink(
-                                get_option("page_for_posts"),
+                            href="<?php echo get_post_type_archive_link(
+                                "post",
                             ); ?>"
                             data-aos="fade-up"
                             data-aos-duration="1500"
                             data-aos-delay="300"
-                            >Learn more</a
+                            >View more</a
                         >
                     </div>
-                </div>
-                <div class="row">
-                    <?php
-                    $args = [
-                        "post_type" => "project",
-                        "posts_per_page" => 3,
-                        "orderby" => "date",
-                        "order" => "DESC",
-                    ];
-
-                    $latest_projects = new WP_Query($args);
-
-                    if ($latest_projects->have_posts()):
-                        while ($latest_projects->have_posts()):
-                            $latest_projects->the_post();
-                            get_template_part("template-parts/project-card");
-                        endwhile;
-                        wp_reset_postdata();
-                    else:
-                         ?>
-                    <div class="col">
-                        <p>No projects found.</p>
-                    </div>
-                    <?php
-                    endif;
-                    ?>
                 </div>
             </div>
         </div>
