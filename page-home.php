@@ -340,8 +340,8 @@ get_header(); ?>
                     <div class="col text-center">
                         <a
                             class="btn btn-primary btn-lg rounded-pill"
-                            href="<?php echo get_post_type_archive_link(
-                                "post",
+                            href="<?php echo get_category_link(
+                                get_cat_ID("all"),
                             ); ?>"
                             data-aos="fade-up"
                             data-aos-duration="1500"
