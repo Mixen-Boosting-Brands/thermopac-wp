@@ -635,8 +635,13 @@ function bootstrap_pagination(
     Creating "All" pseudocategory
 \*------------------------------------*/
 add_action("pre_get_posts", function ($query) {
+    // Front-end, main query, category archive for "all"
     if (!is_admin() && $query->is_main_query() && $query->is_category("all")) {
+        // Remove category filtering completely
+        $query->set("category__in", []);
+        $query->set("category__not_in", []);
+        $query->set("cat", "");
+        $query->set("category_name", ""); // Show all posts
         $query->set("posts_per_page", -1);
-        $query->set("cat", ""); // remove category filter → returns ALL posts
     }
 });
