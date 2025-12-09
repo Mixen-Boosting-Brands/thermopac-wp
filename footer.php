@@ -196,10 +196,9 @@
                     </div>
                     <div class="col-sm-4 my-auto text-center text-sm-start">
                         <address style="color: #313131; font-size: 0.9rem; margin-bottom: 0;">
-                            Oliver Cromwell 2650<br>
-                            Parque Industrial Fernández<br>
-                            Juárez, Chihuahua 32270<br>
-                            <a href="tel:+526563756557">+52 (656) 375 6557</a>
+                            <i class="fa-solid fa-location-dot"></i> Cd. Juárez, Chihuahua, México<br>
+                            <a href="tel:+526563756557">+52 (656) 375 6557</a><br>
+                            <a href="mailto:ventas@thermopac.com">ventas@thermopac.com</a>
                         </address>
                     </div>
                     <div class="col-sm-4 my-auto text-center text-sm-end">
