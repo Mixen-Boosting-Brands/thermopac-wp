@@ -220,7 +220,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <p class="mt-4">Made with <i class="fas fa-heart"></i> by <a href="https://mixen.mx/" target="_blank">Mixen</a></p>
+                        <p class="mt-4">Designed and developed by <a href="https://mixen.mx/" target="_blank">Mixen</a></p>
                     </div>
                 </div>
             </div>
