@@ -194,7 +194,7 @@
                             />
                         </a>
                     </div>
-                    <div class="col-sm-4 my-auto text-center">
+                    <div class="col-sm-4 my-auto text-center text-sm-start">
                         <address>
                             Oliver Cromwell 2650<br>
                             Parque Industrial Fernández<br>
