@@ -175,7 +175,7 @@
         <footer class="pt-30 pb-60">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 my-auto text-center text-sm-start">
+                    <div class="col-sm-4 mb-4 my-sm-auto text-center text-sm-start">
                         <a class="anchor" id="btn-logo" href="<?php echo esc_url(
                             home_url(),
                         ); ?>">
