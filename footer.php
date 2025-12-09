@@ -175,7 +175,7 @@
         <footer class="pt-30 pb-60">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 my-auto text-center text-sm-start">
+                    <div class="col-sm-4 my-auto text-center text-sm-start">
                         <a class="anchor" id="btn-logo" href="<?php echo esc_url(
                             home_url(),
                         ); ?>">
@@ -194,7 +194,15 @@
                             />
                         </a>
                     </div>
-                    <div class="col-sm-6 my-auto text-center text-sm-end">
+                    <div class="col-sm-4 my-auto text-center">
+                        <address>
+                            Oliver Cromwell 2650<br>
+                            Parque Industrial Fernández<br>
+                            Juárez, Chihuahua 32270<br>
+                            <a href="tel:+526563756557">+52 (656) 375 6557</a>
+                        </address>
+                    </div>
+                    <div class="col-sm-4 my-auto text-center text-sm-end">
                         <ul
                             class="certifications list-unstyled my-4 my-sm-0"
                         >
