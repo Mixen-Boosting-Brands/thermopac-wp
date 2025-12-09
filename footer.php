@@ -195,7 +195,7 @@
                         </a>
                     </div>
                     <div class="col-sm-4 my-auto text-center text-sm-start">
-                        <address>
+                        <address style="color: #313131; font-size: 0.9rem; margin-bottom: 0;">
                             Oliver Cromwell 2650<br>
                             Parque Industrial Fernández<br>
                             Juárez, Chihuahua 32270<br>
